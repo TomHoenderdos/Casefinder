@@ -76,6 +76,7 @@
       <!-- Example row of columns -->
       <div class="row" ng-repeat="case in allCases | filter:material">
           <h2>{{case.name}}</h2>
+          {{case.description}}
           <p>{{case.devices}}</p>
           {{case.material}}
           <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p>
