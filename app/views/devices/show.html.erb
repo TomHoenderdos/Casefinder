@@ -1,0 +1,21 @@
+<table class="table table-hover">
+<thead>
+<tr>
+<th><strong>Full name:</strong></th>
+<th><strong>Brand:</strong></th>
+<th><strong>Cases:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><%= @device.full_name %></td>
+<td><%= @device.brand %></td>
+<td><%= @device.cases.to_a.map{ |x| x.name + " " + x.color + ": " + x.product_type }.join(', ') %></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<%= link_to 'Edit', edit_device_path(@device), :style => "color: white;" , :class => "btn btn-primary btn-lg"  %>
+<%= link_to 'Back', devices_path, :style => "color: white;" , :class => "btn btn-primary btn-lg"  %>

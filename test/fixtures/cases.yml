@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  color: MyString
+  product_type: MyString
+  material: MyString
+  finishing: MyString
+
+two:
+  name: MyString
+  description: MyString
+  color: MyString
+  product_type: MyString
+  material: MyString
+  finishing: MyString

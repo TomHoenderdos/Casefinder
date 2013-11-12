@@ -1,0 +1,43 @@
+<h1>Listing cases</h1>
+
+<table class="table table-condensed table-responsive table-hover ">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Color</th>
+      <th>Product type</th>
+      <th>Material</th>
+      <th>Finishing</th>
+      <th>Devices</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cases.each do |f| %>
+      <tr>
+        <td><%= f.name %></td>
+        <td><%= f.description %></td>
+        <td><%= f.color %></td>
+        <td><%= f.product_type %></td>
+        <td><%= f.material %></td>
+        <td><%= f.finishing %></td>
+        <td>
+        <%= f.devices.to_a.map(&:full_name).join(', ') %>
+        </td>
+        <td><%= f.picture.present? %></td>
+        <td><%= link_to 'Show', f %></td>
+        <td><%= link_to 'Edit', edit_case_path(f) %></td>
+        <td><%= link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Case', new_case_path, :style => "color: white;" , :class => "btn btn-primary btn-lg" %>

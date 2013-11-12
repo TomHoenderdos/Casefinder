@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App</title>
+  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js" %>
+  <%= javascript_include_tag "http://code.angularjs.org/1.2.0/angular-resource.min.js" %>
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>  
+</head>
+
+<body style="padding-top: 40px;padding-bottom: 40px;background-color: #eee;">
+<% if alert %>
+  <div class="alert alert-danger" style="margin: 23px 10px 0px;"><%= alert %></div>
+<% end %>
+<% if notice %>
+  <div class="alert alert-warning alert-dismissable" style="margin: 23px 10px 0px;"><%= notice %></div>
+<% end %>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+
+      	<div class="navbar-collapse collapse">
+
+
+		<div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            <a class="navbar-brand" href="http://ot-cc.apps.runkite.com/">FindMyCase</a>
+        </div>
+
+
+      	<ul class="nav navbar-nav">
+                <li class="active"><a href="/cases">Cases</a></li>
+                <li><a href="/devices">Devices</a></li>
+        </ul>
+
+
+	<p class="navbar-text pull-right">
+	<% if user_signed_in? %>
+	  Logged in as <strong><%= current_user.email %></strong>.
+	  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+	  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+	<% else %>
+	  <% link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+	  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+	<% end %>
+	</p>
+	</div>
+</div>
+</div>
+
+
+
+
+<div class="container" style="width: 1024px; padding-top: 10px;">
+	<%= yield %>
+</div>
+
+</div>
+</body>
+</html>

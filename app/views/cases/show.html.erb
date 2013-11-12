@@ -1,0 +1,31 @@
+<table class="table table-hover">
+<thead>
+<tr>
+<th><strong>Name:</strong><th/>
+<th><strong>Description:</strong><th/>
+<th><strong>Color:</strong><th/>
+<th><strong>Product type:</strong><th/>
+<th><strong>Material:</strong><th/>
+<th><strong>Finishing:</strong><th/>
+<th><strong>Devices:</strong><th/>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><%= @case.name %></td>
+<td><%= @case.description %></td>
+<td><%= @case.color %></td>
+<td><%= @case.product_type %></td>
+<td><%= @case.material %></td>
+<td><%= @case.finishing %></td>
+<td><%= @case.devices.to_a.map(&:full_name).join(', ') %></td>
+</tr>
+</tbody>
+</table>
+
+<strong>Picture:</strong><br>
+<%= image_tag(@case.picture_url, :width => 200) if @case.picture.present? %><br>
+
+<%= link_to 'Edit', edit_case_path(@case), :style => "color: white;" , :class => "btn btn-primary btn-lg" %>
+<%= link_to 'Back', cases_path, :style => "color: white;" , :class => "btn btn-warning btn-lg" %>
