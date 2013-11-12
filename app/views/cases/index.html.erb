@@ -24,7 +24,7 @@
         <td><%= f.description %></td>
         <td><%= f.color %></td>
         <td><%= f.product_type %></td>
-        <td><%= f.material %></td>
+        <td><%= f.material.tr('+/', '-_').unpack('m')[0] %></td>
         <td><%= f.finishing %></td>
         <td>
         <%= f.devices.to_a.map(&:full_name).join(', ') %>
