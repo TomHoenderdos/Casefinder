@@ -1,5 +1,4 @@
 .fmc {
-  padding: 30px;
   margin-bottom: 30px;
   font-size: 14px;
   font-weight: 200;
@@ -22,14 +21,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .fmc {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-  .container .fmc {
-    padding-right: 60px;
-    padding-left: 60px;
-  }
   .fmc h1 {
     font-size: 63px;
   }
