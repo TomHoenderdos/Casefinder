@@ -38,7 +38,11 @@
   margin-left: 0 !important;
 }
 
-h2.cat {
+h5.cat {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
+  font-size: 15px;
+  font-family: DINPro-Medium;
+  text-transform: uppercase;
+  line-height: 18px;
 }
