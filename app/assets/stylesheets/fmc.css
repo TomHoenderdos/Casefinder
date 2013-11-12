@@ -27,7 +27,7 @@
 }
 
 .valenta {
-  width: 970px;
+  width: 970px !important;
 }
 
 .radio-inline {
