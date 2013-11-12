@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
   <title>App</title>
   <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" %>
@@ -11,7 +11,7 @@
   <%= csrf_meta_tags %>  
 </head>
 
-<body style="padding-top: 40px;padding-bottom: 40px;background-color: #eee;">
+<body ng-controller="findMyCase" style="padding-top: 40px;padding-bottom: 40px;background-color: #eee;">
 <% if alert %>
   <div class="alert alert-danger" style="margin: 23px 10px 0px;"><%= alert %></div>
 <% end %>
