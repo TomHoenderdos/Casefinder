@@ -1,6 +1,4 @@
     
-<p>Nothing here {{'yet' + '!'}}</p>
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="fmc">
       <div class="container valenta">
@@ -24,10 +22,10 @@
         <div class="col-md-3">
           <h2 class="cat">Material</h2>
           <label class="radio-inline">
-            <input ng-model="material" type="checkbox" name="radioGroup" id="radio1" value="Leather"> Leather
+            <input ng-model="material" type="radio" name="radioGroup" id="radio1" value="Leather"> Leather
           </label><br/>
           <label class="radio-inline">
-            <input ng-model="material" type="checkbox" name="radioGroup" id="radio1" value="Non-Leather"> Non-Leather
+            <input ng-model="material" type="radio" name="radioGroup" id="radio1" value="Non-leather"> Non-Leather
           </label>
        </div>
         <div class="col-md-6">
@@ -74,23 +72,13 @@
     </div>
 
 
-
      <div class="container valenta">
       <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <div class="row" ng-repeat="case in allCases | filter:material">
+          <h2>{{case.name}}</h2>
+          <p>{{case.devices}}</p>
+          {{case.material}}
+          <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p>
         </div>
       </div>
+    </div>
