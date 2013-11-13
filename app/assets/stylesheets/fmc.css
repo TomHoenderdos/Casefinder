@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "DINPro-Medium";
+  src: url('fonts/DINPro-Medium.eot') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: "DINPro-Medium";
+  src: url('fonts/DINPro-Medium.eot?#iefix') format('embedded-opentype'), url('fonts/DINPro-Medium.woff') format('woff'), url('fonts/DINPro-Medium.ttf') format('truetype'), url('fonts/DINPro-Medium.svg#DINPro-Medium') format('svg');
+}
+
 .fmc {
   margin-bottom: 30px;
   font-size: 14px;
