@@ -17,7 +17,7 @@
 <td><%= @case.description %></td>
 <td><%= @case.color %></td>
 <td><%= @case.product_type %></td>
-<td><%= @case.material %></td>
+<td><%= @case.material.tr('+/', '-_').unpack('m')[0] %></td>
 <td><%= @case.finishing %></td>
 <td><%= @case.devices.to_a.map(&:full_name).join(', ') %></td>
 </tr>
