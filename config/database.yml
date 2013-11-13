@@ -1,12 +1,12 @@
 # PostgreSQL
 development:
   adapter: postgresql
-  host: localhost
+  host: ec2-54-204-2-217.compute-1.amazonaws.com
   encoding: unicode
-  database: myapp
+  database: d55ul505d7bdqo
   pool: 5
-  username: rubypostgres
-  password: 123123
+  username: jywfzyxdptvybr
+  password: 2F9Y_o99Y3aA5tewwlECa4Z1kZ
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -14,14 +14,18 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  host: localhost
-  database: myapp
+  host: ec2-54-204-2-217.compute-1.amazonaws.com
+  database: d55ul505d7bdqo
   pool: 5
-  username: rubypostgres
-  password: 123123
+  username: jywfzyxdptvybr
+  password: 2F9Y_o99Y3aA5tewwlECa4Z1kZ
 
 # production:
-#   adapter: sqlite3
-#   database: db/production.sqlite3
-#   pool: 5
-#   timeout: 5000
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: ec2-54-204-2-217.compute-1.amazonaws.com
+  database: d55ul505d7bdqo
+  pool: 5
+  username: jywfzyxdptvybr
+  password: 2F9Y_o99Y3aA5tewwlECa4Z1kZ
