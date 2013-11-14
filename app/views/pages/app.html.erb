@@ -19,7 +19,7 @@
 </div>
         </div>
         <div class="col-md-3 filter">
-          <h5 class="cat">Material</h5><p ng-click="clearMaterial()" onClick="$('input:radio[name=radioGroup_material]').prop('checked',false);">Reset filter</p>
+          <h5 class="cat" style="float: left">Material</h5><h5 class="cat reset" ng-click="clearMaterial()" onClick="$('input:radio[name=radioGroup_material]').prop('checked',false);">Reset</h5>
           <label class="radio-inline">
             <input ng-model="materialFilter" type="radio" name="radioGroup_material" id="radio1" value="TGVhdGhlcg=="> Leather
           </label><br/>
@@ -28,8 +28,8 @@
           </label>
        </div>
         <div class="col-md-6">
-          <h5 class="cat">Finishing</h5>
-          <p ng-click="clearFinishing()" onClick="$('input:radio[name=radioGroup_finishing]').prop('checked',false);">Reset filter</p>
+          <h5 class="cat" style="float: left">Finishing</h5>
+          <h5 class="cat reset" ng-click="clearFinishing()" onClick="$('input:radio[name=radioGroup_finishing]').prop('checked',false);">Reset filter</h5>
           <label class="checkbox-inline">
             {{finishing.Croco}} <input ng-model="finishing.Croco" value="Croco" type="checkbox" name="radioGroup_finishing"> Croco Structure
           </label>
@@ -54,7 +54,7 @@
       <div class="row">
         <div class="col-md-3">
           <h5 class="cat">Colors</h2>
-          <p>
+          <p class="colors">
           <label class="radio-inline">
             <input type="radio" name="radioGroup" id="radio1" value="option1" class="radio-pos"> 
           </label>
@@ -76,18 +76,21 @@
     </div>
 
 
-     <div class="container valenta">
-     <div class="row">
-      <div class="col-md-3" ng-repeat="case in allCases | filter:materialFilter | finishingFilter:finishing" >
+  <div class="results">
+    <div class="container valenta">
+      <div class="row">
+        <div class="col-md-3" ng-repeat="case in allCases | filter:materialFilter | finishingFilter:finishing" >
           <div class="casebox">
             <img src="{{case.image_tag}}">
             <div class="casebox-inner">
               <p class="name">{{case.name}}</p> <p class="color">{{case.color}}</p>
               <p class="product_type">{{case.product_type}}</p>
             </div>
-            <!-- <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p> -->
+          </div>
+          <!-- <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p> -->
           </div>
         </div>
       </div>
-      </div>
     </div>
+  </div>
+    <!-- </div> -->
