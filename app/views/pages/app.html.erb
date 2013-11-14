@@ -81,7 +81,7 @@
       <div class="row">
         <div class="col-md-3" ng-repeat="case in allCases | filter:materialFilter | finishingFilter:finishing" >
           <div class="casebox">
-            <img src="{{case.image_url}}">
+            <img src="{{case.image_tag}}">
             <div class="casebox-inner">
               <p class="name">{{case.name}}</p> <p class="color">{{case.color}}</p>
               <p class="product_type">{{case.product_type}}</p>
