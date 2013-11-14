@@ -110,3 +110,42 @@ ul.navbar-nav li a {
 p.navbar-text {
   padding-top: 23px;
 }
+
+div.casebox {
+  height: 225px;
+  background: rgba(0,0,0, .7);
+  margin: 10px;
+  overflow: hidden;
+}
+
+div.casebox img {
+  height: 175px;
+}
+
+div.casebox-inner {
+  background-color: #000;
+}
+
+div.casebox-inner p {
+    font-family: DINPro-Medium;
+    padding: 5px;
+    margin: 0 0 -8px;
+}
+
+div.casebox-inner p.name {
+  font-size: 16px;
+  color: #fff;
+  float: left;
+}
+
+div.casebox-inner p.color {
+  font-size: 12px;
+  color: #8c8c8c;
+  vertical-align: bottom;
+  padding-top: 8px;
+}
+
+div.casebox-inner p.product_type {
+  font-size: 12px;
+  color: #fff;
+}

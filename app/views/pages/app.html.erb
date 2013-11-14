@@ -77,13 +77,17 @@
 
 
      <div class="container valenta">
-      <div class="row" ng-repeat="case in allCases | filter:materialFilter | finishingFilter:finishing" >
-          <h2>{{case.name}}</h2>
-          {{case.finishing}}
-          {{case.description}}
-          <p>{{case.devices}}</p>
-          {{case.material_decoded}}
-          <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p>
+     <div class="row">
+      <div class="col-md-3" ng-repeat="case in allCases | filter:materialFilter | finishingFilter:finishing" >
+          <div class="casebox">
+            <img src="{{case.image_url}}">
+            <div class="casebox-inner">
+              <p class="name">{{case.name}}</p> <p class="color">{{case.color}}</p>
+              <p class="product_type">{{case.product_type}}</p>
+            </div>
+            <!-- <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p> -->
+          </div>
         </div>
+      </div>
       </div>
     </div>
