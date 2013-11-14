@@ -8,13 +8,17 @@
   src: url('fonts/DINPro-Medium.eot?#iefix') format('embedded-opentype'), url('fonts/DINPro-Medium.woff') format('woff'), url('fonts/DINPro-Medium.ttf') format('truetype'), url('fonts/DINPro-Medium.svg#DINPro-Medium') format('svg');
 }
 
+body {
+  padding-top: 92px !important;
+}
+
 .fmc {
-  margin-bottom: 30px;
+  padding: 10px;
   font-size: 14px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #eeeeee;
+  background-color: #000;
 }
 
 .fmc h1 {
@@ -49,10 +53,60 @@
 }
 
 h5.cat {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   font-size: 15px;
   font-family: DINPro-Medium;
+  color: #fff;
   text-transform: uppercase;
   line-height: 18px;
+}
+
+div.hdr {
+  height: 15px; 
+  background-color: #000; 
+  width: 100%
+}
+
+div.nav {
+  height: 72px;
+}
+
+.navbar-inner {
+    height: 60px;
+}
+
+div.filter {
+  font-family: DinPro-Medium;
+  font-size: 15px;
+  color: #6e6e6e;
+}
+
+input, button, select, textarea, label {
+  font-family: DinPro-Medium !important;
+  font-size: 13px !important;
+  color: #6e6e6e !important;
+}
+
+.navbar-fixed-top {
+  background-color: #fff;
+}
+
+.navbar-brand img {
+  padding-top: 7px;
+}
+
+ul.navbar-nav li {
+  font-family: "DINPro-Bold" !important;
+  font-size: 20px !important;
+  color: #000 !important;
+  padding-top: 20px;
+}
+
+ul.navbar-nav li a {
+  color: #000;
+}
+
+p.navbar-text {
+  padding-top: 23px;
 }
