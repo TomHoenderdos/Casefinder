@@ -33,7 +33,9 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		};
 		var allFalse = true;
 		angular.forEach(case_, function(value, key){	
-			console.log(this.finishings[value.finishing])
+
+
+			// if (this.finishings === true && this.finishings[value.finishing] == undefined){allFalse = false;}
 			if (this.finishings[value.finishing] === true){
 				allFalse = false;
 				this.out.push(value);
@@ -43,7 +45,10 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		if (allFalse){
 			return case_;
 		} else {
-			return items.out;	
+			if ($.isEmptyObject(items.out))
+				return [];
+			else
+				return items.out;
 		}
 		
 	};
