@@ -1,11 +1,13 @@
 @font-face {
-  font-family: "DINPro-Medium";
-  src: url('fonts/DINPro-Medium.eot') format('embedded-opentype');
+  font-family: 'DinPro-Bold';
+  src: url('DINPro-Bold.eot') format('embedded-opentype');
+  src: url('DINPro-Bold.eot?#iefix') format('embedded-opentype'), url('DINPro-Bold.woff') format('woff'), url('DINPro-Bold.ttf') format('truetype'), url('DINPro-Bold.svg#DINPro-Bold') format('svg');
 }
 
 @font-face {
-  font-family: "DINPro-Medium";
-  src: url('fonts/DINPro-Medium.eot?#iefix') format('embedded-opentype'), url('fonts/DINPro-Medium.woff') format('woff'), url('fonts/DINPro-Medium.ttf') format('truetype'), url('fonts/DINPro-Medium.svg#DINPro-Medium') format('svg');
+  font-family: 'DinPro-Medium';
+  src: url('DINPro-Medium.eot') format('embedded-opentype');
+  src: url('DINPro-Medium.eot?#iefix') format('embedded-opentype'), url('DINPro-Medium.woff') format('woff'), url('DINPro-Medium.ttf') format('truetype'), url('DINPro-Medium.svg#DINPro-Medium') format('svg');
 }
 
 html {
@@ -112,7 +114,7 @@ ul.navbar-nav li {
   font-family: "DINPro-Bold" !important;
   font-size: 20px !important;
   color: #000 !important;
-  padding-top: 20px;
+  padding-top: 18px;
 }
 
 ul.navbar-nav li a {
@@ -120,7 +122,7 @@ ul.navbar-nav li a {
 }
 
 p.navbar-text {
-  padding-top: 23px;
+  padding-top: 21px;
 }
 
 div.casebox {

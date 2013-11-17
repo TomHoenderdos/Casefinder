@@ -19,6 +19,10 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			$scope.finishing.Other = "";
 			$scope.finishing.Gloss = "";
 		}
+
+		$scope.clearColors = function() {
+			$scope.colorFilter = {};
+		}
 }])
 .filter('finishingFilter', function(){
 	return function(case_, finishing_) {
