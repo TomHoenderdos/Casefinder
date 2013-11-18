@@ -8,6 +8,11 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			}
 			$scope.allCases = response;
 		});
+
+		$http.get('/devices.json').success(function(devicesJson) {
+			$scope.allDevices = devicesJson;
+		});
+
 		$scope.clearMaterial = function() {
 			$scope.materialFilter = {};
 		}
@@ -24,36 +29,73 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			$scope.colorFilter = {};
 		}
 }])
-.filter('finishingFilter', function(){
-	return function(case_, finishing_) {
-		
-		if (finishing_ == undefined){
-			return case_;
-		}
-
-		var items = {
-			finishings: finishing_,
-			out: []
-		};
-		var allFalse = true;
-		angular.forEach(case_, function(value, key){	
-
-
-			// if (this.finishings === true && this.finishings[value.finishing] == undefined){allFalse = false;}
-			if (this.finishings[value.finishing] === true){
-				allFalse = false;
-				this.out.push(value);
-			}
-		}, items);
-
-		if (allFalse){
-			return case_;
+.filter('deviceFilter', function(){
+	return function(allCases, filterInput){
+		if (!angular.isUndefined(allCases) && !angular.isUndefined(filterInput) && filterInput.length > 0) {
+			var tempCases = [];
+			angular.forEach(allCases, function(value, key){
+			var gotIt = false;	
+				angular.forEach(value.devices, function(value, key){
+					if (value.id == filterInput){
+						gotIt=true;
+					}
+				});
+				if(gotIt){
+					tempCases.push(value);
+				}
+			});
+			return tempCases;
 		} else {
-			if ($.isEmptyObject(items.out))
-				return [];
-			else
-				return items.out;
+			return allCases;
 		}
-		
+	};
+})
+.filter('finishingFilter', function(){
+	return function(allCases, finishingFilterInput) {
+		console.log("Case_");
+			console.log(allCases);
+			console.log("Finishing_");
+			console.log(finishingFilterInput);
+
+		if (!angular.isUndefined(allCases) && !angular.isUndefined(finishingFilterInput) && finishingFilterInput.length > 0) {	
+			
+
+
+			var tempCases = [];
+			angular.forEach(allCases, function(allCases_value, allCases_key){	
+				angular.forEach(finishingFilterInput, function(filterInput_value, filterInput_key){
+					if (filterInput_key == true){
+						console.log(filterInput_value);
+						console.log(allCases_value)
+					}
+				})
+			})
+
+			var items = {
+				finishings: finishingFilterInput,
+				out: []
+			};
+
+			var allFalse = true;
+			angular.forEach(allCases, function(value, key){	
+				// if (this.finishings === true && this.finishings[value.finishing] == undefined){allFalse = false;}
+				if (this.finishings[value.finishing] == true){
+					allFalse = false;
+					this.out.push(value);
+				}
+			}, items);
+
+			if (allFalse){
+				return allCases;
+			} else {
+				if ($.isEmptyObject(items.out))
+					return [];
+				else
+					return items.out;
+			}
+		} else {
+			return allCases;
+		}
+	
 	};
 });

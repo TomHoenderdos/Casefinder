@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131110093116) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "cases", force: true do |t|
     t.string "name"
     t.string "description"
@@ -32,8 +29,9 @@ ActiveRecord::Schema.define(version: 20131110093116) do
   end
 
   create_table "devices", force: true do |t|
-    t.string "full_name"
-    t.string "brand"
+    t.string  "full_name"
+    t.string  "brand"
+    t.integer "row_order"
   end
 
   create_table "users", force: true do |t|

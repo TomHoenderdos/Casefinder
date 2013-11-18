@@ -5,46 +5,39 @@
         <div class="col-md-3">
           <h5 class="cat">Device</h2>
           <!-- Single button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    Action <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
+<select ng-model="devices" class="form-control">
+<option value="" >--- Empty ---</option>
+<option ng-repeat="device in allDevices" value="{{device.id}}">{{device.full_name}}</option>
+</select>
+   
         </div>
         <div class="col-md-3 filter">
           <h5 class="cat" style="float: left">Material</h5>
           <h5 class="cat reset" ng-click="clearMaterial()" onClick="$('input[name=radioGroup_material]').attr('checked',false);">Reset</h5>
           <label class="radio-inline">
-            <input ng-model="materialFilter" type="radio" name="radioGroup_material" id="radio1" value="TGVhdGhlcg=="> Leather
+            <input ng-model="case.material" type="radio" name="radioGroup_material" id="radio1" value="TGVhdGhlcg=="> Leather
           </label><br/>
           <label class="radio-inline">
-            <input ng-model="materialFilter" type="radio" name="radioGroup_material" id="radio1" value="Tm9uLUxlYXRoZXI="> Non-Leather
+            <input ng-model="case.material" type="radio" name="radioGroup_material" id="radio1" value="Tm9uLUxlYXRoZXI="> Non-Leather
           </label>
        </div>
         <div class="col-md-6">
           <h5 class="cat" style="float: left">Finishing</h5>
           <h5 class="cat reset" ng-click="clearFinishing()" onClick="$('input:radio[name=radioGroup_finishing]').prop('checked',false);">Reset</h5>
           <label class="checkbox-inline">
-            {{finishing.Croco}} <input ng-model="finishing.Croco" value="Croco" type="checkbox" name="radioGroup_finishing"> Croco Structure
+            <input ng-model="case.finishing.Croco" value="Croco" type="checkbox" name="radioGroup_finishing"> Croco Structure
           </label>
           <label class="checkbox-inline">
-            {{finishing.Print}}<input ng-model="finishing.Print" value="Print" type="checkbox" name="radioGroup_finishing"> Print
+            <input ng-model="case.finishing.Print" value="Print" type="checkbox" name="radioGroup_finishing"> Print
           </label><br/>
           <label class="checkbox-inline">
-            {{finishing.Snake}}<input ng-model="finishing.Snake" value="Snake" type="checkbox" name="radioGroup_finishing"> Snake Structure
+            <input ng-model="case.finishing.Snake" value="Snake" type="checkbox" name="radioGroup_finishing"> Snake Structure
           </label>
           <label class="checkbox-inline">
-           {{finishing.Other}} <input ng-model="finishing.Other" value="Other" type="checkbox" name="radioGroup_finishing"> Other
+           <input ng-model="case.finishing.Other" value="Other" type="checkbox" name="radioGroup_finishing"> Other
           </label><br/>
           <label class="checkbox-inline">
-          {{finishing.Gloss}} <input ng-model="finishing.Gloss" value="Gloss" type="checkbox" name="radioGroup_finishing"> Gloss
+          <input ng-model="case.finishing.Gloss" value="Gloss" type="checkbox" name="radioGroup_finishing"> Gloss
           </label>
         </div>
       </div>
@@ -80,7 +73,7 @@
   <div class="results">
     <div class="container valenta">
       <div class="row">
-        <div class="col-md-3" ng-repeat="case in allCases | filter:materialFilter | finishingFilter:finishing | filter:colorFilter" >
+        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | filter:case.material | finishingFilter:case.finishing | filter:colorFilter" >
           <div class="casebox">
             <img src="{{case.image_tag}}">
             <div class="casebox-inner">
