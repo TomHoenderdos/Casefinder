@@ -3,14 +3,16 @@
 <head>
   <title>App</title>
   <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" %>
+  <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" %>
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js" %>
+
   <%= javascript_include_tag "http://code.angularjs.org/1.2.0/angular-resource.min.js" %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>  
 </head>
 
-<body ng-controller="findMyCaseList" style="padding-top: 40px;padding-bottom: 40px;background-color: #eee;">
+<body ng-controller="findMyCaseList as case" style="padding-top: 40px;padding-bottom: 40px;background-color: #eee;">
 <% if alert %>
   <div class="alert alert-danger" style="margin: 23px 10px 0px;"><%= alert %></div>
 <% end %>

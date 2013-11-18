@@ -5,7 +5,7 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.all
+    @devices = Device.rank(:row_order).all
   end
 
   # GET /devices/1
@@ -41,16 +41,20 @@ class DevicesController < ApplicationController
   # PATCH/PUT /devices/1.json
   def update
     user_signed_in?
+
+
+
+
       if @device.update(device_params)
-        Devicecase.where(:device_id => @device.id).delete_all
-        params[:device][:cases].each do |cases_id|
-          devicecases = Devicecase.new(:device_id => @device.id, :case_id => cases_id)
-          if devicecases.valid?
-            devicecases.save
-          else 
-            p devicecases.errors
-          end
-        end
+        # Devicecase.where(:device_id => @device.id).delete_all
+        # params[:device][:cases].each do |cases_id|
+        #   devicecases = Devicecase.new(:device_id => @device.id, :case_id => cases_id)
+        #   if devicecases.valid?
+        #     devicecases.save
+        #   else 
+        #     p devicecases.errors
+        #   end
+        # end
         flash[:notice] = 'Device was successfully updated.'
         redirect_to action: "index"
       else
