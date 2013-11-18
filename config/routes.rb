@@ -3,22 +3,35 @@ App::Application.routes.draw do
 
 
   get "pages/app"
-  devise_for :users
+  devise_for :users, 
+    :path => 'admin', 
+    :path_names => {:sign_in  => 'login', :sign_out => 'logout', :sign_up => 'signup'}
+
   resources :devicecases
 
   resources :cases do
     resources :devices
   end
-  
-  resources :devices
 
-namespace :api, defaults: {format: :json} do
-  resources :cases_list, only: [:index] do
-    resources :cases, only: [:index]
+  namespace :api, defaults: {format: :json} do
+    resources :cases_list, only: [:index] do
+      resources :cases, only: [:index]
+    end
   end
-end
 
-root to: 'cases#index'
+  scope '/admin' do
+    resources :cases
+    resources :devices
+  end
+
+  devise_scope :user do
+    get "sign_in", :to => "devise/sessions#new"
+  end
+
+  root to: 'pages#app'
+
+# get 'admin/cases' => 'cases#index'
+# get 'admin/devices' => 'devices#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
