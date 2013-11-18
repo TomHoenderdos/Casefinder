@@ -1,7 +1,7 @@
 var findMyCase = angular.module('findMyCase', []);
  
 findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $http){
-		$http.get('/cases.json').success(function(response) {
+		$http.get('/admin/cases.json').success(function(response) {
 			for (var key in response){
 			  	var res = response[key];
 	  			res.material_decoded = atob(res.material);
@@ -9,7 +9,7 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			$scope.allCases = response;
 		});
 
-		$http.get('/devices.json').success(function(devicesJson) {
+		$http.get('/admin/devices.json').success(function(devicesJson) {
 			$scope.allDevices = devicesJson;
 		});
 
