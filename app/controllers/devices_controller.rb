@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   # GET /devices
   # GET /devices.json
@@ -41,9 +41,6 @@ class DevicesController < ApplicationController
   # PATCH/PUT /devices/1.json
   def update
     user_signed_in?
-
-
-
 
       if @device.update(device_params)
         # Devicecase.where(:device_id => @device.id).delete_all
