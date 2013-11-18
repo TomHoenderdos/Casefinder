@@ -17,6 +17,7 @@ App::Application.routes.draw do
     end
   end
 
+  get '/admin', to: 'cases#index'
   scope '/admin' do
     resources :cases
     resources :devices
