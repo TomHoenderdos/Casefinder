@@ -1,6 +1,6 @@
-<h1>New case</h1>
+<h1 style="background:white;">New case</h1>
 
-<%= form_for @case, :html => {:class => "form-horizontal"} do |f| %>
+<%= form_for @case, :html => {:style => "background:white;", :class => "form-horizontal"} do |f| %>
   <% if @case.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@case.errors.count, "error") %> prohibited this case from being saved:</h2>

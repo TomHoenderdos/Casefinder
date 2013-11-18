@@ -4,7 +4,6 @@ App::Application.routes.draw do
 
   get "pages/app"
   devise_for :users
-  resources :devicecases
 
   resources :cases do
     resources :devices
