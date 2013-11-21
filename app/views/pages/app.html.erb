@@ -7,7 +7,7 @@
           <!-- Single button -->
 <select ng-model="devices" class="form-control">
 <option value="" >--- Empty ---</option>
-<option ng-repeat="device in allDevices" value="{{device.id}}">{{device.full_name}}</option>
+<option ng-repeat="device in allDevices" value="{{device.id}}">{{device.brand}} {{device.full_name}}</option>
 </select>
    
         </div>
