@@ -2,7 +2,7 @@ json.array!(@cases) do |case_|
   json.extract! case_, :id, :name, :description, :color, :product_type, :material, :finishing
 
   if !case_.picture.url.nil?
-  	json.image_tag "http://findmycase.apps.runkite.com"+case_.picture.url
+  	json.image_tag case_.picture.url
   else
   	json.image_tag ""
   end
