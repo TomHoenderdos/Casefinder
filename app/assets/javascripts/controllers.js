@@ -30,7 +30,7 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		}
 
 		$scope.clearProductTypes = function() {
-			$scope.case.prodType = {};
+			$scope.case.product_type = {};
 		}
 }])
 .filter('deviceFilter', function(){
