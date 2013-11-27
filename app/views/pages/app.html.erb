@@ -154,6 +154,7 @@
           </div>
           <!-- <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p> -->
           </div>
+        <div ng-show="(allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | colorFilter:case.color | prodTypeFilter:case.prodType).length == 0"><h2 style="color:white;">No results!</h2></div>
         </div>
       </div>
     </div>
