@@ -146,7 +146,7 @@
       <div class="row">
         <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | colorFilter:case.color | prodTypeFilter:case.prodType" >
           <div class="casebox">
-            <img src="{{case.image_tag}}">
+            <img ng-src="{{case.image_tag}}">
             <div class="casebox-inner">
               <p class="name">{{case.name}}</p> <p class="color">{{case.color}}</p>
               <p class="product_type">{{case.product_type}}</p>
