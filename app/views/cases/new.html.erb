@@ -1,6 +1,6 @@
 <h1 style="background:white;">New case</h1>
 
-<%= form_for @case, :html => {:style => "background:white;", :class => "form-horizontal"} do |f| %>
+<%= form_for @case, :html => {:class => "form-horizontal"} do |f| %>
   <% if @case.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@case.errors.count, "error") %> prohibited this case from being saved:</h2>
@@ -41,16 +41,29 @@
     <%= f.label :picture, :class => "col-sm-2 control-label" %>
     <div class="col-sm-10"><%= f.file_field :picture, :class => "form-control" %></div>
   </div>
-
-  <div class="form-group">
+<div class="form-group">
+  
   <%= f.label :devices, :class => "col-sm-2 control-label" %>
-  <% devices_list = Device.all.map { |d| [d.brand + ' ' + d.full_name, d.id] } %>
-  <div class="col-sm-10"><%= f.select :devices, options_for_select(devices_list),{},{ :class => "form-control", :multiple => true, :required => true} %></div>
+  <div class="col-sm-10">
+              <div class="multiselect"> 
+              <% checked_devices = @case.devices.to_a.map{ |d| d.id} %>
+                <% Device.all.sort_by{|s| [s['brand'],s['full_name']]}.each do |d| %>
+                <% if d.full_name != "- - - - - - - - - - - - - - - -" %>
+                  <label>
+                      <input type="checkbox" id="case_devices" name="case[devices][]" value="<%= d.id %>" <% if checked_devices.include?(d.id) %><%= "checked" %><% end %>/> <%= d.full_name %>
+                  </label>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10"><%= f.submit class: "btn btn-default btn-lg" %></div>
   </div>
 <% end %>
 
-
+<script type="text/javascript">
+$(function() {
+     $(".multiselect").multiselect();
+});</script>
 <%= link_to 'Back', cases_path,:style => "color: white;" , :class => "btn btn-primary btn-lg" %>
