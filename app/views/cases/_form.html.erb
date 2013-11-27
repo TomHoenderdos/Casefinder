@@ -11,40 +11,56 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name, :class => "col-sm-2 control-label" %>
-    <div class="col-sm-10"><%= f.text_field :name, :class => "form-control" %></div>
-  </div>
-  <div class="form-group">
-    <%= f.label :description, :class => "col-sm-2 control-label" %>
-    <div class="col-sm-10"><%= f.text_field :description, :class => "form-control" %></div>
-  </div>
-  <div class="form-group">
-    <%= f.label :color, :class => "col-sm-2 control-label" %>
-    <div class="col-sm-10"><%= f.text_field :color, :class => "form-control" %></div>
-  </div>
-  <div class="form-group">
-    <%= f.label :finishing, :class => "col-sm-2 control-label" %>
-    <div class="col-sm-10"><%= f.select :finishing, [['Croco'],['Snake'],['Gloss'], ['Print'],['Other']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></div>
-  </div>
-    <div class="form-group">
-    <%= f.label :product_type, :class => "col-sm-2 control-label" %>
-    <div class="col-sm-10"><%= f.select :product_type, [['Pocket'],['Bag'],['Belt'],['Click-on'],['Flip'],['Booklet'],['Pouch'],['Wallet'],['Handbag'],['Tablet']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></div>
-  </div>
-  <div class="form-group">
-    <%= f.label :material, :class => "col-sm-2 control-label" %>
-    <div class="col-sm-10"><%= f.select :material, [['Leather', 'TGVhdGhlcg=='], ['Non Leather', 'Tm9uLUxlYXRoZXI=']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></div>
-  </div>
-      <div class="form-group">
-    <%= f.label :picture, :class => "col-sm-2 control-label" %>
-    <div class="col-sm-10"><%= f.file_field :picture, :class => "form-control" %></div>
-  </div>
-  <div class="form-group">
-  <%= f.label :devices, :class => "col-sm-2 control-label" %>
-  <% devices_list = Device.all.map { |d| [d.full_name, d.id] } %>
-  <div class="col-sm-10"><%= f.select :devices, options_for_select(devices_list, @case.devices.to_a.map{ |d| d.id}),{},{ :class => "form-control", :multiple => true} %></div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10"><%= f.submit class: "btn btn-default btn-lg" %></div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="casebox-2">
+        <%= image_tag(@case.picture_url, :width => 192) if @case.picture.present? %>
+      </div><br/>
+      <center>
+        <%= f.submit class: "btn btn-success btn-xs", :style => "color: #fff !important; width: 100px;" %>
+        <%= link_to 'Back', cases_path, :style => "color: white; width: 100px;" , :class => "btn btn-warning btn-xs" %>
+      </center>
+    </div>
+    <div class="col-md-9">
+      <table style="background:transparent;" class="table table-condensed table-responsive table-hover table-striped">
+        <tbody>
+          <tr>
+            <td width="10" style="white-space:nowrap;"><strong><%= f.label :product_type, :class => "control-label" %></strong></td>
+            <td width="100%"><%= f.select :product_type, [['Pocket'],['Bag'],['Belt'],['Click-on'],['Flip'],['Booklet'],['Pouch'],['Wallet'],['Handbag'],['Tablet']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></td>
+          </tr>
+          <tr>
+            <td width="10" style="white-space:nowrap;"><strong><%= f.label :name, :class => "control-label" %></strong></td>
+            <td width="100%"><%= f.text_field :name, :class => "form-control", :type => "email", :placeholder => "Email" %></td>
+          </tr>
+          <tr>
+            <td width="10" style="white-space:nowrap;"><strong><%= f.label :color, :class => "control-label" %></strong></td>
+            <td width="100%"><%= f.text_field :color, :class => "form-control" %></td>
+          </tr>
+          <tr>
+            <td width="10"><strong><%= f.label :description, :class => "control-label" %></strong></td>
+            <td><%= f.text_field :description, :class => "form-control" %></td>
+          </tr>
+          <tr>
+            <td width="10"><strong><%= f.label :material, :class => "control-label" %></strong></td>
+            <td><%= f.select :material, [['Leather', 'TGVhdGhlcg=='], ['Non Leather', 'Tm9uLUxlYXRoZXI=']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></td>
+          </tr>
+          <tr>
+            <td width="10"><strong><%= f.label :finishing, :class => "control-label" %></strong></td>
+            <td><%= f.select :finishing, [['Croco'],['Snake'],['Gloss'], ['Print'],['Other']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></td>
+          </tr>
+          <tr>
+            <td width="10"><strong><%= f.label :picture, :class => "control-label" %></strong></td>
+            <td><%= f.file_field :picture, :class => "form-control" %></td>
+          </tr>
+          <tr>
+            <td width="10"><strong><%= f.label :devices, :class => "control-label" %></strong></td>
+            <td>
+              <% devices_list = Device.all.map { |d| [d.full_name, d.id] } %>
+              <%= f.select :devices, options_for_select(devices_list, @case.devices.to_a.map{ |d| d.id}),{},{ :class => "form-control", :multiple => true} %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 <% end %>

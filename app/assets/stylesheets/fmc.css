@@ -199,3 +199,8 @@ a.btn:visited {
   background-color: #f5f5f5;
   color: #000 !important;
  }
+
+.control-label {
+  font-size: 15px !important;
+  color: #fff !important;
+}
