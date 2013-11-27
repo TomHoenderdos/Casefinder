@@ -7,9 +7,9 @@ App::Application.routes.draw do
     :path => 'admin', 
     :path_names => {:sign_in  => 'login', :sign_out => 'logout', :sign_up => 'signup'}
 
-  resources :cases do
-    resources :devices
-  end
+  # resources :cases do
+  #   resources :devices
+  # end
 
   namespace :api, defaults: {format: :json} do
     resources :cases_list, only: [:index] do
