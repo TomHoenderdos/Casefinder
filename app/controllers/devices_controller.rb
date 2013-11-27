@@ -5,7 +5,7 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.rank(:row_order).all
+    @devices = Device.rank(:row_order).to_a
   end
 
   # GET /devices/1

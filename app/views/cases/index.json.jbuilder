@@ -13,5 +13,5 @@ json.array!(@cases) do |case_|
   	json.brand d.brand
   end
 
-  json.url case_url(case_, format: :json)
+  #json.url case_url(case_, format: :json)
 end

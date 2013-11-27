@@ -14,19 +14,20 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		});
 
 		$scope.clearMaterial = function() {
-			$scope.materialFilter = {};
+			$scope.case.material = {};
 		}
 
 		$scope.clearFinishing = function() {
-			$scope.finishing.Croco = "";
-			$scope.finishing.Print = "";
-			$scope.finishing.Snake = "";
-			$scope.finishing.Other = "";
-			$scope.finishing.Gloss = "";
+			$scope.case.finishing.Croco = false;
+			$scope.case.finishing.Print = false;
+			$scope.case.finishing.Snake = false;
+			$scope.case.finishing.Other = false;
+			$scope.case.finishing.Gloss = false;
+
 		}
 
 		$scope.clearColors = function() {
-			$scope.colorFilter = {};
+			$scope.case.color = {};
 		}
 }])
 .filter('deviceFilter', function(){
@@ -50,82 +51,66 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		}
 	};
 })
-.filter('leatherFilter', function(){
-	return function(allCases, leatherFilterInput) {
-		if (!angular.isUndefined(allCases) && !angular.isUndefined(leatherFilterInput)){	
-			var allFalse = {"L":true, "N":true};
+// .filter('leatherFilter', function(){
+// 	return function(allCases, leatherFilterInput) {
+// 		if (!angular.isUndefined(allCases) && !angular.isUndefined(leatherFilterInput)){	
+// 			var tempCases = [];
+// 				angular.forEach(leatherFilterInput, function(filterInput_value, filterInput_key){
+// 					angular.forEach(allCases, function(allCases_value, allCases_key){				
+// 						if(angular.equals(allCases_value.material, filterInput_value)){
+// 							tempCases.push(allCases_value);
+// 						}
+// 					});
+// 				});
+// 			return tempCases;
+// 		} else {
+// 			return allCases;
+// 		}
+// 	};
+// })
+.filter('colorFilter', function(){
+	return function(allCases, colorFilterInput) {
+		console.log("colorFilterInput");
+		console.log(colorFilterInput);
+		if (!angular.isUndefined(allCases) && !angular.isUndefined(colorFilterInput) && colorFilterInput.length > 0){
 			var tempCases = [];
-			angular.forEach(allCases, function(allCases_value, allCases_key){	
-				angular.forEach(leatherFilterInput, function(filterInput_value, filterInput_key){
-						
-						console.log("allCases Value");
-						console.log(allCases_value);
-						console.log("allCases_key");
-						console.log(allCases_key);
-						console.log("filterInput_key");
-						console.log(filterInput_key);
-						console.log("filterInput_value");
-						console.log(filterInput_value);
-						console.log("allFalse");
-						console.log(allFalse);
-
-					if (filterInput_value != "false"){
-						
-						console.log("filterInput_value != false");
-						console.log("filterInput_value");
-						console.log(filterInput_value);
-						
-						if(allCases_value.material == filterInput_value){
-							tempCases.push(allCases_value);
-						}
-					} else {
-						
-						console.log("bliep");
-						console.log(allFalse);
-						
-						allFalse[filterInput_key] = false;
-						
-						console.log(allFalse[filterInput_key]);
-						console.log("bloep");
-						
-					}
-				})
-			})
-			console.log(allFalse);
-			if(allFalse.L && allFalse.N){
-				return allCases;
-			} else {
-				return tempCases;	
-			}
+			angular.forEach(allCases, function(cases){	
+				if (cases.color == colorFilterInput){
+					tempCases.push(cases);
+				}
+			});
+			return tempCases;
 		} else {
 			return allCases;
 		}
 	};
-})
-.filter('finishingFilter', function(){
+}).filter('finishingFilter', function(){
 	return function(allCases, finishingFilterInput) {
+		console.log("finishingFilterInput");
+		console.log(finishingFilterInput);
 		if (!angular.isUndefined(allCases) && !angular.isUndefined(finishingFilterInput)){	
-			var allFalse = true;
-			var stopAllFalseCheck = false;
+			var FilterInputsFalse = true;
+			var noResults = true;
 			var tempCases = [];
 			angular.forEach(allCases, function(allCases_value, allCases_key){	
 				angular.forEach(finishingFilterInput, function(filterInput_value, filterInput_key){
-					if (filterInput_value == true){
-						if(!stopAllFalseCheck){
-							allFalse = false;	
-						} 
+					if (filterInput_value == true){			
+							FilterInputsFalse = false;			
 						if(allCases_value.finishing == filterInput_key){
-							allFalse = true;
-							stopAllFalseCheck = true;
+							noResults = false;
 							tempCases.push(allCases_value);
 						}
 					}
-				})
-			})
-			if(allFalse){
+				});
+			});
+			if(FilterInputsFalse){
 				return allCases;
 			} else {
-				return tempCases;	
+				if (noResults){
+					return allCases;
+				} else {	
+					return tempCases;	
+				}
 			}
 		} else {
 			return allCases;
