@@ -104,9 +104,37 @@
           </p>
         </div>
         <div class="col-md-9">
-          <h5 class="cat">Product Type</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h5 class="cat" style="float: left">Product Type</h5>
+          <h5 class="cat reset" ng-click="clearProductTypes()" onClick="$('input[name=prodType]').attr('checked',false);">Reset</h5>
+          <p class="colors">
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Pocket" class="radio-pos" /> Pocket
+          </label>
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Belt" class="radio-pos" /> Belt
+          </label>
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Click-On" class="radio-pos" /> Click-On
+          </label>
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Flip" class="radio-pos" /> Flip
+          </label>
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Booklet" class="radio-pos" /> Booklet
+          </label>
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Pouch" class="radio-pos" /> Pouch
+          </label>
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Wallet" class="radio-pos" /> Wallet
+          </label>
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Handbag" class="radio-pos" /> Handbag
+          </label>
+          <label class="radio-inline">
+            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Tablet" class="radio-pos" /> Tablet
+          </label>
+          </p>
        </div>
       </div>
       </div>
