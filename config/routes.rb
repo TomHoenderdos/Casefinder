@@ -1,8 +1,5 @@
 App::Application.routes.draw do
   
-
-
-  get "pages/app"
   devise_for :users, 
     :path => 'admin', 
     :path_names => {:sign_in  => 'login', :sign_out => 'logout', :sign_up => 'signup'}
