@@ -74,7 +74,7 @@
   <div class="results">
     <div class="container valenta">
       <div class="row">
-        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | filter:case.material | finishingFilter:case.finishing | colorFilter:case.color" >
+        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | colorFilter:case.color" >
           <div class="casebox">
             <img src="{{case.image_tag}}">
             <div class="casebox-inner">

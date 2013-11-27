@@ -23,7 +23,6 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			$scope.case.finishing.Snake = false;
 			$scope.case.finishing.Other = false;
 			$scope.case.finishing.Gloss = false;
-
 		}
 
 		$scope.clearColors = function() {
@@ -51,10 +50,23 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		}
 	};
 })
+.filter('leatherFilter', function(){
+	return function(allCases, leatherFilterInput) {
+		if (!angular.isUndefined(allCases) && !angular.isUndefined(leatherFilterInput) && leatherFilterInput.length > 0){	
+			var tempCases = [];
+			angular.forEach(allCases, function(cases){				
+				if( cases.material == leatherFilterInput){
+					tempCases.push(cases);
+				}
+			});
+			return tempCases;
+		} else {
+			return allCases;
+		}
+	};
+})
 .filter('colorFilter', function(){
 	return function(allCases, colorFilterInput) {
-		console.log("colorFilterInput");
-		console.log(colorFilterInput);
 		if (!angular.isUndefined(allCases) && !angular.isUndefined(colorFilterInput) && colorFilterInput.length > 0){
 			var tempCases = [];
 			angular.forEach(allCases, function(cases){	
@@ -67,20 +79,17 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			return allCases;
 		}
 	};
-}).filter('finishingFilter', function(){
+})
+.filter('finishingFilter', function(){
 	return function(allCases, finishingFilterInput) {
-		console.log("finishingFilterInput");
-		console.log(finishingFilterInput);
 		if (!angular.isUndefined(allCases) && !angular.isUndefined(finishingFilterInput)){	
 			var FilterInputsFalse = true;
-			var noResults = true;
 			var tempCases = [];
 			angular.forEach(allCases, function(allCases_value, allCases_key){	
-				angular.forEach(finishingFilterInput, function(filterInput_value, filterInput_key){
-					if (filterInput_value == true){			
+				angular.forEach(finishingFilterInput, function(filterInput_key, filterInput_value){
+					if (filterInput_key == true){			
 							FilterInputsFalse = false;			
-						if(allCases_value.finishing == filterInput_key){
-							noResults = false;
+						if(allCases_value.finishing == filterInput_value){
 							tempCases.push(allCases_value);
 						}
 					}
@@ -89,11 +98,7 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			if(FilterInputsFalse){
 				return allCases;
 			} else {
-				if (noResults){
-					return allCases;
-				} else {	
-					return tempCases;	
-				}
+				return tempCases;	
 			}
 		} else {
 			return allCases;
