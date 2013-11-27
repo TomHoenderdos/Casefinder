@@ -18,27 +18,33 @@
 		<table style="background:transparent;" class="table table-condensed table-responsive table-hover table-striped">
 			<tbody>
 				<tr>
-					<td style="white-space:nowrap;"><strong>Product type</strong></td>
+					<td width="10" style="white-space:nowrap;"><strong>Product type</strong></td>
+					<td width="10">:</td>
 					<td><%= @case.product_type %></td>
 				</tr>
 				<tr>
-					<td><strong>Name</strong></td>
+					<td width="10"><strong>Name</strong></td>
+					<td width="10">:</td>
 					<td><%= @case.name %></td>
 				</tr>
 				<tr>
-					<td><strong>Color</strong></td>
+					<td width="10"><strong>Color</strong></td>
+					<td width="10">:</td>
 					<td><%= @case.color %></td>
 				</tr>
 				<tr>
-					<td><strong>Material</strong></td>
+					<td width="10"><strong>Material</strong></td>
+					<td width="10">:</td>
 					<td><%= @case.material.tr('+/', '-_').unpack('m')[0] %></td>
 				</tr>
 				<tr>
-					<td><strong>Finishing</strong></td>
+					<td width="10"><strong>Finishing</strong></td>
+					<td width="10">:</td>
 					<td><%= @case.finishing %></td>
 				</tr>
 				<tr>
-					<td><strong>Compatibility</strong></td>
+					<td width="10"><strong>Compatibility</strong></td>
+					<td width="10">:</td>
 					<td><%= @case.devices.to_a.map(&:full_name).join(', ') %></td>
 				</tr>
 			</tbody>
