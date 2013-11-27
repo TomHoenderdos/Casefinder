@@ -55,8 +55,15 @@
           <tr>
             <td width="10"><strong><%= f.label :devices, :class => "control-label" %></strong></td>
             <td>
-              <% devices_list = Device.all.map { |d| [d.full_name, d.id] } %>
-              <%= f.select :devices, options_for_select(devices_list, @case.devices.to_a.map{ |d| d.id}),{},{ :class => "form-control", :multiple => true} %>
+              <div class="multiselect"> 
+                <% Device.all.sort_by{|s| [s['brand'],s['full_name']]}.each do |d| %>
+                <label>
+                     <% if d.full_name != "- - - - - - - - - - - - - - - -" %>
+                      <input type="checkbox" id="case_devices" name="case[devices][]" value="<%= d.id %>" /> <%= d.full_name %>
+                    <% end %>
+                </label>
+                <% end %>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -64,3 +71,7 @@
     </div>
   </div>
 <% end %>
+<script type="text/javascript">
+$(function() {
+     $(".multiselect").multiselect();
+});</script>
