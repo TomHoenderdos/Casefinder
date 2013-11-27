@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-3">
 	    <div class="casebox-2">
-	    	<%= image_tag(@case.picture_url, :width => 200) if @case.picture.present? %>
+	    	<%= image_tag(@case.picture_url, :width => 192) if @case.picture.present? %>
     	</div><br/>
     	<center>
 	    	<%= link_to 'Edit', edit_case_path(@case), :style => "color: white; width: 100px;" , :class => "btn btn-primary btn-xs" %>
