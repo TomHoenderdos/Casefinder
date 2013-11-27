@@ -28,6 +28,10 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		$scope.clearColors = function() {
 			$scope.case.color = {};
 		}
+
+		$scope.clearProductTypes = function() {
+			$scope.case.prodType = {};
+		}
 }])
 .filter('deviceFilter', function(){
 	return function(allCases, filterInput){
@@ -71,6 +75,21 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			var tempCases = [];
 			angular.forEach(allCases, function(cases){	
 				if (cases.color == colorFilterInput){
+					tempCases.push(cases);
+				}
+			});
+			return tempCases;
+		} else {
+			return allCases;
+		}
+	};
+})
+.filter('prodTypeFilter', function(){
+	return function(allCases, prodTypeFilterInput) {
+		if (!angular.isUndefined(allCases) && !angular.isUndefined(prodTypeFilterInput) && prodTypeFilterInput.length > 0){
+			var tempCases = [];
+			angular.forEach(allCases, function(cases){	
+				if (cases.product_type == prodTypeFilterInput){
 					tempCases.push(cases);
 				}
 			});
