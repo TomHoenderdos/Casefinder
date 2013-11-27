@@ -106,33 +106,33 @@
         <div class="col-md-9">
           <h5 class="cat" style="float: left">Product Type</h5>
           <h5 class="cat reset" ng-click="clearProductTypes()" onClick="$('input[name=prodType]').attr('checked',false);">Reset</h5>
-          <p class="colors">
+          <p class="prodType">
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Pocket" class="radio-pos" /> Pocket
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Pocket" class="radio-pos" /> Pocket
           </label>
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Belt" class="radio-pos" /> Belt
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Belt" class="radio-pos" /> Belt
           </label>
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Click-On" class="radio-pos" /> Click-On
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Click-On" class="radio-pos" /> Click-On
           </label>
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Flip" class="radio-pos" /> Flip
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Flip" class="radio-pos" /> Flip
           </label>
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Booklet" class="radio-pos" /> Booklet
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Booklet" class="radio-pos" /> Booklet
           </label>
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Pouch" class="radio-pos" /> Pouch
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Pouch" class="radio-pos" /> Pouch
           </label>
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Wallet" class="radio-pos" /> Wallet
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Wallet" class="radio-pos" /> Wallet
           </label>
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Handbag" class="radio-pos" /> Handbag
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Handbag" class="radio-pos" /> Handbag
           </label>
           <label class="radio-inline">
-            <input ng-model="case.color" type="radio" name="prodType" id="radio2" value="Tablet" class="radio-pos" /> Tablet
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Tablet" class="radio-pos" /> Tablet
           </label>
           </p>
        </div>
@@ -144,7 +144,7 @@
   <div class="results">
     <div class="container valenta">
       <div class="row">
-        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | filter:case.material | finishingFilter:case.finishing | colorFilter:case.color" >
+        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | filter:case.material | finishingFilter:case.finishing | colorFilter:case.color | prodTypeFilter:case.prodType" >
           <div class="casebox">
             <img src="{{case.image_tag}}">
             <div class="casebox-inner">
