@@ -51,23 +51,6 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		}
 	};
 })
-// .filter('leatherFilter', function(){
-// 	return function(allCases, leatherFilterInput) {
-// 		if (!angular.isUndefined(allCases) && !angular.isUndefined(leatherFilterInput)){	
-// 			var tempCases = [];
-// 				angular.forEach(leatherFilterInput, function(filterInput_value, filterInput_key){
-// 					angular.forEach(allCases, function(allCases_value, allCases_key){				
-// 						if(angular.equals(allCases_value.material, filterInput_value)){
-// 							tempCases.push(allCases_value);
-// 						}
-// 					});
-// 				});
-// 			return tempCases;
-// 		} else {
-// 			return allCases;
-// 		}
-// 	};
-// })
 .filter('colorFilter', function(){
 	return function(allCases, colorFilterInput) {
 		console.log("colorFilterInput");

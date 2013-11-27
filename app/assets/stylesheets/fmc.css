@@ -70,6 +70,22 @@ h5.cat {
   line-height: 18px;
 }
 
+@media (max-width: 992px){
+  .cat {
+    margin-top: 0px;
+  }
+  h5.reset{
+    margin-top:10px;
+  }
+  .valenta{
+    width:auto !important;
+  }
+  div.results .col-md-3 {
+    float:left;
+  }
+
+}
+
 h5.reset {
   text-align: right;
   text-transform: none;
