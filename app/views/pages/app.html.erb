@@ -15,10 +15,10 @@
           <h5 class="cat" style="float: left">Material</h5>
           <h5 class="cat reset" ng-click="clearMaterial()" onClick="$('input[name=radioGroup_material]').attr('checked',false);">Reset</h5>
           <label class="radio-inline">
-            <input ng-model="case.material" type="radio" name="radioGroup_material" id="radio1" value="TGVhdGhlcg=="> Leather
+            <input ng-model="case.material.L" type="checkbox" name="radioGroup_material" ng-false-value="false" ng-true-value="TGVhdGhlcg==" value="TGVhdGhlcg=="> Leather
           </label><br/>
           <label class="radio-inline">
-            <input ng-model="case.material" type="radio" name="radioGroup_material" id="radio1" value="Tm9uLUxlYXRoZXI="> Non-Leather
+            <input ng-model="case.material.N" type="checkbox" name="radioGroup_material" ng-false-value="false" ng-true-value="Tm9uLUxlYXRoZXI=" value="Tm9uLUxlYXRoZXI="> Non-Leather
           </label>
        </div>
         <div class="col-md-6">
@@ -73,7 +73,7 @@
   <div class="results">
     <div class="container valenta">
       <div class="row">
-        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | filter:case.material | finishingFilter:case.finishing | filter:colorFilter" >
+        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | filter:colorFilter" >
           <div class="casebox">
             <img src="{{case.image_tag}}">
             <div class="casebox-inner">

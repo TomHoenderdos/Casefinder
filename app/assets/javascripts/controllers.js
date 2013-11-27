@@ -50,52 +50,85 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		}
 	};
 })
-.filter('finishingFilter', function(){
-	return function(allCases, finishingFilterInput) {
-		console.log("Case_");
-			console.log(allCases);
-			console.log("Finishing_");
-			console.log(finishingFilterInput);
-
-		if (!angular.isUndefined(allCases) && !angular.isUndefined(finishingFilterInput) && finishingFilterInput.length > 0) {	
-			
-
-
+.filter('leatherFilter', function(){
+	return function(allCases, leatherFilterInput) {
+		if (!angular.isUndefined(allCases) && !angular.isUndefined(leatherFilterInput)){	
+			var allFalse = {"L":true, "N":true};
 			var tempCases = [];
 			angular.forEach(allCases, function(allCases_value, allCases_key){	
-				angular.forEach(finishingFilterInput, function(filterInput_value, filterInput_key){
-					if (filterInput_key == true){
+				angular.forEach(leatherFilterInput, function(filterInput_value, filterInput_key){
+						
+						console.log("allCases Value");
+						console.log(allCases_value);
+						console.log("allCases_key");
+						console.log(allCases_key);
+						console.log("filterInput_key");
+						console.log(filterInput_key);
+						console.log("filterInput_value");
 						console.log(filterInput_value);
-						console.log(allCases_value)
+						console.log("allFalse");
+						console.log(allFalse);
+
+					if (filterInput_value != "false"){
+						
+						console.log("filterInput_value != false");
+						console.log("filterInput_value");
+						console.log(filterInput_value);
+						
+						if(allCases_value.material == filterInput_value){
+							tempCases.push(allCases_value);
+						}
+					} else {
+						
+						console.log("bliep");
+						console.log(allFalse);
+						
+						allFalse[filterInput_key] = false;
+						
+						console.log(allFalse[filterInput_key]);
+						console.log("bloep");
+						
 					}
 				})
 			})
-
-			var items = {
-				finishings: finishingFilterInput,
-				out: []
-			};
-
-			var allFalse = true;
-			angular.forEach(allCases, function(value, key){	
-				// if (this.finishings === true && this.finishings[value.finishing] == undefined){allFalse = false;}
-				if (this.finishings[value.finishing] == true){
-					allFalse = false;
-					this.out.push(value);
-				}
-			}, items);
-
-			if (allFalse){
+			console.log(allFalse);
+			if(allFalse.L && allFalse.N){
 				return allCases;
 			} else {
-				if ($.isEmptyObject(items.out))
-					return [];
-				else
-					return items.out;
+				return tempCases;	
 			}
 		} else {
 			return allCases;
 		}
-	
+	};
+})
+.filter('finishingFilter', function(){
+	return function(allCases, finishingFilterInput) {
+		if (!angular.isUndefined(allCases) && !angular.isUndefined(finishingFilterInput)){	
+			var allFalse = true;
+			var stopAllFalseCheck = false;
+			var tempCases = [];
+			angular.forEach(allCases, function(allCases_value, allCases_key){	
+				angular.forEach(finishingFilterInput, function(filterInput_value, filterInput_key){
+					if (filterInput_value == true){
+						if(!stopAllFalseCheck){
+							allFalse = false;	
+						} 
+						if(allCases_value.finishing == filterInput_key){
+							allFalse = true;
+							stopAllFalseCheck = true;
+							tempCases.push(allCases_value);
+						}
+					}
+				})
+			})
+			if(allFalse){
+				return allCases;
+			} else {
+				return tempCases;	
+			}
+		} else {
+			return allCases;
+		}
 	};
 });

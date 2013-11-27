@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#table-devices").tableDnD({
     	onDrop: function(table, row){
-    		$.ajax({
+        $.ajax({
   				type: 'PUT',
   				url: '/devices',
 				dataType: 'json',
