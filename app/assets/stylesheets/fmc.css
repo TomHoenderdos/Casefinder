@@ -164,6 +164,13 @@ div.casebox-inner p.product_type {
   color: #fff;
 }
 
+div.casebox-2 {
+  height: 220px; width: 220px;
+  background: rgba(0,0,0, .7);
+  padding: 10px;
+  overflow: hidden;
+}
+
 p.hidecurrent {
   display: none;
 }
