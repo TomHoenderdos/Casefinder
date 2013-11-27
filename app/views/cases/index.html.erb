@@ -31,7 +31,7 @@
               <td style="white-space:nowrap;"><%= f.material.tr('+/', '-_').unpack('m')[0] %></td>
               <td style="white-space:nowrap;"><%= f.finishing %></td>
               <td style="white-space:nowrap;">
-              <p style="white-space:nowrap; width:250px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin"><%= f.devices.to_a.map(&:full_name).join(', ') %></p>
+              <p style="white-space:nowrap; width:210px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin"><%= f.devices.to_a.map(&:full_name).join(', ') %></p>
               </td>
               <td><%= f.picture.present? %></td>
               <td><%= link_to 'View', f, :class => "btn btn-info btn-xs" %></td>

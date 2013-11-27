@@ -52,10 +52,10 @@
     </p>
 	<% else %>
     <% if request.env['REQUEST_PATH'] == "/admin" %>
-    
-  	  <% link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
-  	  <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
-    
+      <p class="navbar-text pull-right">
+  	   <% link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
+  	   <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+     </p>
     <% end %>
 	<% end %>
 
