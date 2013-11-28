@@ -53,7 +53,7 @@
             <td><%= f.file_field :picture, :class => "form-control" %></td>
           </tr>
           <tr>
-            <td width="10"><strong><%= f.label :devices, :class => "control-label" %></strong></td>
+            <td width="10"><strong><label class="control-label" for="case_devices">Compatibility</label></strong></td>
             <td>
               <div class="multiselect"> 
               <% checked_devices = @case.devices.to_a.map{ |d| d.id} %>
