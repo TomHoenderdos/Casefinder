@@ -2,7 +2,7 @@ App::Application.routes.draw do
   
   devise_for :users, 
     :path => 'admin', 
-    :path_names => {:sign_in  => 'login', :sign_out => 'logout', :sign_up => 'signup'}
+    :path_names => {:sign_in  => 'login', :sign_out => 'logout', :sign_up => 'addemployee'}
 
   # resources :cases do
   #   resources :devices
