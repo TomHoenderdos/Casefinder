@@ -18,11 +18,11 @@
       </div><br/>
       <center>
         <%= f.submit class: "btn btn-success btn-xs", :style => "color: #fff !important; width: 100px;" %>
-        <%= link_to 'Back', cases_path, :style => "color: white; width: 100px;" , :class => "btn btn-warning btn-xs" %>
+        <%= link_to 'Back', cases_path, :style => "color: white; width: 100px;" , :class => "btn btn-info btn-xs" %>
       </center>
     </div>
     <div class="col-md-9">
-      <table style="background:transparent;" class="table table-condensed table-responsive table-hover table-striped">
+      <table style="background:transparent;" class="table table-condensed table-responsive table-striped">
         <tbody>
           <tr>
             <td width="10" style="white-space:nowrap;"><strong><%= f.label :product_type, :class => "control-label" %></strong></td>
@@ -60,7 +60,7 @@
                 <% Device.all.sort_by{|s| [s['brand'],s['full_name']]}.each do |d| %>
                      <% if d.full_name != "- - - - - - - - - - - - - - - -" %>
                      <label>
-                      <input type="checkbox" id="case_devices" name="case[devices][]" value="<%= d.id %>" <% if checked_devices.include?(d.id) %><%= "checked" %><% end %>/> <%= d.full_name %>
+                      <input type="checkbox" id="case_devices" name="case[devices][]" value="<%= d.id %>" <% if checked_devices.include?(d.id) %><%= "checked" %><% end %>/> <%= d.brand %> <%= d.full_name %>
                       </label>
                     <% end %>
                 <% end %>
