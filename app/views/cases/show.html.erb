@@ -10,12 +10,12 @@
 	    	<%= image_tag(@case.picture_url, :width => 192) if @case.picture.present? %>
     	</div><br/>
     	<center>
-	    	<%= link_to 'Edit', edit_case_path(@case), :style => "color: white; width: 100px;" , :class => "btn btn-primary btn-xs" %>
-			<%= link_to 'Back', cases_path, :style => "color: white; width: 100px;" , :class => "btn btn-warning btn-xs" %>
+	    	<%= link_to 'Edit', edit_case_path(@case), :style => "color: white; width: 100px;" , :class => "btn btn-warning btn-xs" %>
+			<%= link_to 'Back', cases_path, :style => "color: white; width: 100px;" , :class => "btn btn-info btn-xs" %>
 		</center>
     </div>
     <div class="col-md-9">
-		<table style="background:transparent;" class="table table-condensed table-responsive table-hover table-striped">
+		<table style="background:transparent;" class="table table-condensed table-responsive table-striped">
 			<tbody>
 				<tr>
 					<td width="10" style="white-space:nowrap;"><strong>Product type</strong></td>
