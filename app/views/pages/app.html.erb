@@ -6,8 +6,24 @@
           <h5 class="cat">Device</h2>
           <!-- Single button -->
 <select ng-model="devices" class="form-control">
-<option value="" >--- Empty ---</option>
-<option ng-repeat="device in allDevices" value="{{device.id}}">{{device.brand}} {{device.full_name}}</option>
+<option value="" >Please select Your Cellphone</option>
+<option value="" >- - - - - - - - - - - - - - - -</option>
+<!-- <option ng-repeat="device in allDevices" value="{{device.id}}">{{device.brand}} {{device.full_name}}</option> -->
+<% Device.rank(:row_order).to_a.each do |d| %>
+  <% if d.row_order != nil %>
+    <option value="<%= d.id %>">
+      <%= d.brand %> <%= d.full_name %>
+    </option>
+  <% end %>
+<% end %>
+<option value="" >- - - - - - - - - - - - - - - -</option>
+                <% Device.all.sort_by{|s| [s['brand'],s['full_name']]}.each do |d| %>
+                     <% if d.full_name != "- - - - - - - - - - - - - - - -" %>
+                     <option value="<%= d.id %>">
+                      <%= d.brand %> <%= d.full_name %>
+                    </option>
+                    <% end %>
+                <% end %>
 </select>
    
         </div>
@@ -63,7 +79,7 @@
             <input ng-model="case.color" type="radio" name="colorGroup" id="brown" value="Brown" class="radio-pos col" />
           <label class="radio-inline col" for="brown" title="Brown"></label>
           
-            <input ng-model="case.color" type="radio" name="colorGroup" id="cognac" value="Cognac" class="radio-pos col" />
+            <input ng-model="case.color" type="radio" name="colorGroup" id="cognac" value="Vintage Cognac" class="radio-pos col" />
           <label class="radio-inline col" for="cognac" title="Cognac"></label>
           
             <input ng-model="case.color" type="radio" name="colorGroup" id="green" value="Green" class="radio-pos col" />
