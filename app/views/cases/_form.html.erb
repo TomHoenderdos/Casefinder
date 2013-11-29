@@ -26,11 +26,11 @@
         <tbody>
           <tr>
             <td width="10" style="white-space:nowrap;"><strong><%= f.label :product_type, :class => "control-label" %></strong></td>
-            <td width="100%"><%= f.select :product_type, [['Pocket'],['Bag'],['Belt'],['Click-on'],['Flip'],['Booklet'],['Pouch'],['Wallet'],['Handbag'],['Tablet']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></td>
+            <td width="100%"><%= f.select :product_type, [['Pocket'],['Bag'],['Belt'],['Click-on'],['Flip'],['Booklet'],['Booklet Slim'],['Booklet-Slim'],['Pouch'],['Wallet'],['Handbag'],['Tablet']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></td>
           </tr>
           <tr>
             <td width="10" style="white-space:nowrap;"><strong><%= f.label :name, :class => "control-label" %></strong></td>
-            <td width="100%"><%= f.text_field :name, :class => "form-control", :type => "email", :placeholder => "Email" %></td>
+            <td width="100%"><%= f.text_field :name, :class => "form-control" %></td>
           </tr>
           <tr>
             <td width="10" style="white-space:nowrap;"><strong><%= f.label :color, :class => "control-label" %></strong></td>
