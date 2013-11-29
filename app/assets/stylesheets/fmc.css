@@ -251,3 +251,50 @@ a.btn:visited {
   border-radius: 4px;
   background-color: #2f2f2f !important;
 }
+
+input.col[type='radio'], input.col[type='checkbox']{opacity:0;position:absolute;filter:alpha(opacity=0);margin:5px 0 0 5px}
+input[type='radio']:focus+label, input[type="checkbox"]:focus+label{color:#C30}
+input[type="checkbox"]+label, input[type="radio"]+label{background:url('/assets/colortags.png') left top no-repeat;position:relative;margin:0;padding:0 0 0 50px;cursor:pointer;line-height:20px;min-height:20px;display:inline-block;z-index:0;font-size:20px;font-weight:bold}
+input[type="checkbox"]+label{background-position:0 0}
+input[type="radio"]+label{background-position:0 -21px}
+input[type='checkbox']:checked+label{background-position:0 -100px}
+input[type='radio']:checked+label{background-position:0 0px}
+input[type='checkbox']:disabled+label{background-position:0 -400px;color:#999}
+input[type='radio']:disabled+label{background-position:0 -600px;color:#999} 
+input[type='checkbox']:disabled:checked+label{background-position:0 -500px;color:#999}
+input[type='radio']:disabled:checked+label{background-position:0 -700px;color:#999}
+input[id='beige']+label{background-position:0 -21px}
+input[id='beige']:checked+label{background-position:0 0px}
+input[id='black']+label{background-position:0 -21px}
+input[id='black']:checked+label{background-position:0 0px}
+input[id='blue']+label{background-position:0 -21px}
+input[id='blue']:checked+label{background-position:0 0px}
+input[id='brown']+label{background-position:0 -21px}
+input[id='brown']:checked+label{background-position:0 0px}
+input[id='cognac']+label{background-position:0 -21px}
+input[id='cognac']:checked+label{background-position:0 0px}
+input[id='green']+label{background-position:0 -21px}
+input[id='green']:checked+label{background-position:0 0px}
+input[id='grey']+label{background-position:0 -21px}
+input[id='grey']:checked+label{background-position:0 0px}
+input[id='orange']+label{background-position:0 -21px}
+input[id='orange']:checked+label{background-position:0 0px}
+input[id='pink']+label{background-position:0 -21px}
+input[id='pink']:checked+label{background-position:0 0px}
+input[id='purple']+label{background-position:0 -21px}
+input[id='purple']:checked+label{background-position:0 0px}
+input[id='red']+label{background-position:0 -65px}
+input[id='red']:checked+label{background-position:0 -44px}
+input[id='silver']+label{background-position:0 -21px}
+input[id='silver']:checked+label{background-position:0 0px}
+input[id='turquoise']+label{background-position:0 -21px}
+input[id='turquoise']:checked+label{background-position:0 0px}
+input[id='violet']+label{background-position:0 -21px}
+input[id='violet']:checked+label{background-position:0 0px}
+input[id='white']+label{background-position:0 -21px}
+input[id='white']:checked+label{background-position:0 0px}
+input[id='yellow']+label{background-position:0 -21px}
+input[id='yellow']:checked+label{background-position:0 0px}
+label.col {
+  width:25px;
+}
