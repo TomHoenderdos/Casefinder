@@ -90,6 +90,7 @@ h5.reset {
   text-align: right;
   text-transform: none;
   color: #6e6e6e;
+  cursor: pointer;
 }
 
 div.hdr {
