@@ -74,7 +74,7 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		if (!angular.isUndefined(allCases) && !angular.isUndefined(colorFilterInput) && colorFilterInput.length > 0){
 			var tempCases = [];
 			angular.forEach(allCases, function(cases){	
-				if (cases.color == colorFilterInput){
+				if (cases.color.indexOf(colorFilterInput) != -1){
 					tempCases.push(cases);
 				}
 			});
@@ -89,7 +89,7 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 		if (!angular.isUndefined(allCases) && !angular.isUndefined(prodTypeFilterInput) && prodTypeFilterInput.length > 0){
 			var tempCases = [];
 			angular.forEach(allCases, function(cases){	
-				if (cases.product_type == prodTypeFilterInput){
+				if (cases.product_type.indexOf(prodTypeFilterInput) != -1){
 					tempCases.push(cases);
 				}
 			});
