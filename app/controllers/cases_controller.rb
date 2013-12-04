@@ -131,7 +131,7 @@ class CasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def case_params
-      params.require(:case).permit(:name, :description, :color, :product_type, :material, :finishing, :picture, :devices)
+      params.require(:case).permit(:name, :description, :color, :product_type, :material, :finishing, :picture, :devices, :finishings, :url)
     end
 
   rescue_from ActiveRecord::RecordNotFound do

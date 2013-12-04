@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 
 # Authentication solutions for Rails 4
-gem 'devise'
+gem 'devise', '~> 3.2.2'
 
 
 #Sortable list

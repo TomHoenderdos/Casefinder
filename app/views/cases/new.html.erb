@@ -52,6 +52,12 @@
             <td width="10"><strong><%= f.label :material, :class => "control-label" %></strong></td>
             <td><%= f.select :material, [['Leather', 'TGVhdGhlcg=='], ['Non Leather', 'Tm9uLUxlYXRoZXI=']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></td>
           </tr>
+                    <tr>
+          <td width="10"><strong><%= f.label :url, :class => "control-label" %></strong></td>
+          <td>
+            <%= f.text_field :url, :value => "#", :onfocus => '(this.value == "#") ? this.value = "" : this.value', :class => "form-control", :required => true %>
+          </td>
+          </tr>
                    <tr>
             <td width="10"><strong><%= f.label :finishing, :class => "control-label" %></strong></td>
             <td>

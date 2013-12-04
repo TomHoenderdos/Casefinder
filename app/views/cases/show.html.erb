@@ -38,6 +38,11 @@
 					<td><%= @case.material.tr('+/', '-_').unpack('m')[0] %></td>
 				</tr>
 				<tr>
+					<td width="10"><strong>Url</strong></td>
+					<td width="10">:</td>
+					<td><%= @case.url %></td>
+				</tr>
+				<tr>
 					<td width="10"><strong>Finishing</strong></td>
 					<td width="10">:</td>
 					<td><%= @case.finishings.to_a.map(&:name).join(', ') %></td>
@@ -47,6 +52,7 @@
 					<td width="10">:</td>
 					<td><%= @case.devices.to_a.map(&:full_name).join(', ') %></td>
 				</tr>
+				
 			</tbody>
 		</table>
 	</div>
