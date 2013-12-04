@@ -300,3 +300,12 @@ label.col {
    z-index: 10 !important;
    width:25px;
 }
+
+.icon-bar {
+  background-color: #000;
+}
+
+.navbar-toggle {
+  margin-top: 18px !important;
+  margin-bottom: 0 !important;
+}
