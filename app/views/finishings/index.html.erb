@@ -1,0 +1,29 @@
+<h1>Listing finishings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Search string</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @finishings.each do |finishing| %>
+      <tr>
+        <td><%= finishing.name %></td>
+        <td><%= finishing.search_string %></td>
+        <td><%= link_to 'Show', finishing %></td>
+        <td><%= link_to 'Edit', edit_finishing_path(finishing) %></td>
+        <td><%= link_to 'Destroy', finishing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Finishing', new_finishing_path %>

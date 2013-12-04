@@ -45,6 +45,15 @@ class CasesController < ApplicationController
     @case = Case.new(case_params)
       if params[:case][:devices] != [""]
         if @case.save    
+          params[:case][:finishings].each do |finishing|
+            finishingcase = Finishingcase.new(:finishing_id => finishing, :case_id => @case.id)
+            if finishingcase.valid?
+              finishingcase.save
+            else 
+              p finishingcase.errors
+            end
+          end
+
           params[:case][:devices].each do |devices|
             devicecases = Devicecase.new(:device_id => devices, :case_id => @case.id)
             if devicecases.valid?
@@ -73,6 +82,16 @@ class CasesController < ApplicationController
     end
       if @case.update(case_params)
         Devicecase.where(:case_id => @case.id).delete_all
+        Finishingcase.where(:case_id => @case.id).delete_all
+        params[:case][:finishings].each do |finishing|
+          finishingcase = Finishingcase.new(:finishing_id => finishing, :case_id => @case.id)
+          if finishingcase.valid?
+            finishingcase.save
+          else 
+            p finishingcase.errors
+          end
+        end
+
         params[:case][:devices].each do |devices|
           devicecases = Devicecase.new(:device_id => devices, :case_id => @case.id)
           if devicecases.valid?

@@ -40,7 +40,7 @@
 				<tr>
 					<td width="10"><strong>Finishing</strong></td>
 					<td width="10">:</td>
-					<td><%= @case.finishing %></td>
+					<td><%= @case.finishings.to_a.map(&:name).join(', ') %></td>
 				</tr>
 				<tr>
 					<td width="10"><strong>Compatibility</strong></td>

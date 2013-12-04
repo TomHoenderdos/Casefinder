@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @finishing.name %>
+</p>
+
+<p>
+  <strong>Search string:</strong>
+  <%= @finishing.search_string %>
+</p>
+
+<%= link_to 'Edit', edit_finishing_path(@finishing) %> |
+<%= link_to 'Back', finishings_path %>

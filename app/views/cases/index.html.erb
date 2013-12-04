@@ -29,7 +29,9 @@
               <td style="white-space:nowrap;"><%= f.name %></td>
               <td style="white-space:nowrap;"><%= f.color %></td>
               <td style="white-space:nowrap;"><%= f.material.tr('+/', '-_').unpack('m')[0] %></td>
-              <td style="white-space:nowrap;"><%= f.finishing %></td>
+              <td style="white-space:nowrap;">
+              <p style="white-space:nowrap; width:100px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin"><%= f.finishings.to_a.map(&:name).join(', ') %></p>
+              </td>
               <td style="white-space:nowrap;">
               <p style="white-space:nowrap; width:210px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin"><%= f.devices.to_a.map(&:full_name).join(', ') %></p>
               </td>

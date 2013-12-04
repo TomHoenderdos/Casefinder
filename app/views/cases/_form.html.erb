@@ -46,7 +46,16 @@
           </tr>
           <tr>
             <td width="10"><strong><%= f.label :finishing, :class => "control-label" %></strong></td>
-            <td><%= f.select :finishing, [['Croco'],['Snake'],['Gloss'], ['Print'],['Other']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></td>
+            <td>
+            <div class="multiselect"> 
+              <% checked_finishings = @case.finishings.to_a.map{ |d| d.id} %>
+                <% Finishing.all.each do |f| %>
+                     <label>
+                      <input type="checkbox" id="case_devices" name="case[finishings][]" value="<%= f.id %>" <% if checked_finishings.include?(f.id) %><%= "checked" %><% end %>/> <%= f.name %>
+                      </label>
+                <% end %>
+            </div>
+            </td>
           </tr>
           <tr>
             <td width="10"><strong><%= f.label :picture, :class => "control-label" %></strong></td>
