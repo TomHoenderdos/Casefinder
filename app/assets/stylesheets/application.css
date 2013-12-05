@@ -12,6 +12,7 @@
  *= require_tree .
  *= require bootstrap
  */
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -55,4 +56,25 @@
   margin-bottom: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.flash-message {
+  &.error {
+          color: #b94a48;
+          background-color: #f2dede;
+          border-color: #ebccd1;
+        }
+  &.notice {
+          color: #468847;
+          background-color: #dff0d8;
+          border-color: #d6e9c6;
+        }
+  color: black;
+  z-index: 999;
+  position: relative;
+  font-weight: bold;
+  margin: 25px 10px 0 0 !important;
+        p {
+                font-size: 110%;
+                margin: 15px 0;
+        }
 }
