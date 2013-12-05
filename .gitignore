@@ -1,3 +1,5 @@
 tmp
 log
 backup.sql
+uploads/case/picture/*
+uploads/case/picture/*/*
