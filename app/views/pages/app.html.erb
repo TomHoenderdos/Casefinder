@@ -179,7 +179,7 @@
       <div class="row">
         <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | colorFilter:case.color | prodTypeFilter:case.prodType" >
           <div class="col-md-12 casebox" style="padding: 0 0 5px 0;">
-            <a href="{{case.url}}" target="_top"><img class="img-responsive img-rounded" ng-src="{{case.image_tag}}"></a>
+            <a href="{{case.url}}" target="_top"><img class="img-responsive img-rounded" ng-src="{{case.image_tag}}" width=334></a>
             <div class="casebox-inner">
               <p class="name">{{case.name}}</p> <p class="color">{{case.color}}</p>
               <p class="product_type">{{case.product_type}}</p>
