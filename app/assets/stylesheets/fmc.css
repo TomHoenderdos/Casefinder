@@ -372,3 +372,11 @@ select:focus, textarea:focus, input:focus {
   border-top-left-radius: 4px !important;
   border-top-right-radius: 4px !important;
 }
+
+.prodType > label.radio-inline {
+  margin-left: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-left: 0 !important;
+  text-align: center; 
+}
