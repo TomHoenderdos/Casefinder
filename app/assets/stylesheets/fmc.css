@@ -159,14 +159,16 @@ p.navbar-text a:visited {
 }
 
 div.casebox {
-  height: 225px; width: 175px;
+  /*height: 225px; width: 175px;*/
+  /*height: 225px; width: 175px;*/
+  /*width: 365px;*/
   background: rgba(0,0,0, .7);
   margin: 10px;
   overflow: hidden;
 }
 
 div.casebox img {
-  height: 175px;
+  /*height: 345px;*/
 }
 
 div.casebox-inner {
@@ -308,4 +310,15 @@ label.col {
 .navbar-toggle {
   margin-top: 18px !important;
   margin-bottom: 0 !important;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+select:focus, textarea:focus, input:focus {
+        font-size: 16px;
+    }
+}
+
+.alert>p, .alert>ul {
+  margin-top: 0;
+}
 }

@@ -15,3 +15,15 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$(function() {
+  var flashCallback,
+    _this = this;
+  flashCallback = function() {
+    return $(".flash-message").fadeOut();
+  };
+  $(".flash-message").bind('click', function(ev) {
+    return $(".flash-message").fadeOut();
+  });
+  return setTimeout(flashCallback, 3000);
+});
