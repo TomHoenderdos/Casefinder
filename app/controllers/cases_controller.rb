@@ -12,7 +12,7 @@ class CasesController < ApplicationController
   # GET /cases/1.json
   def show
     if !user_signed_in?
-      flash[:alert] = "You need to sign in or sign up before continuing."
+      flash[:alert] = "You need to sign in before continuing."
       redirect_to action: "index"
     end
   end
@@ -20,7 +20,7 @@ class CasesController < ApplicationController
   # GET /cases/new
   def new
     if !user_signed_in?
-      flash[:alert] = "You need to sign in or sign up before continuing."
+      flash[:alert] = "You need to sign in before continuing."
       redirect_to action: "index"
     end
     @case = Case.new
@@ -30,7 +30,7 @@ class CasesController < ApplicationController
   # GET /cases/1/edit
   def edit
     if !user_signed_in?
-      flash[:alert] = "You need to sign in or sign up before continuing."
+      flash[:alert] = "You need to sign in before continuing."
       redirect_to action: "index"
     end
   end
@@ -39,7 +39,7 @@ class CasesController < ApplicationController
   # POST /cases.json
   def create
     if !user_signed_in?
-      flash[:alert] = "You need to sign in or sign up before continuing."
+      flash[:alert] = "You need to sign in before continuing."
       redirect_to action: "index"
     end
     @case = Case.new(case_params)
@@ -77,7 +77,7 @@ class CasesController < ApplicationController
   # PATCH/PUT /cases/1.json
   def update
     if !user_signed_in?
-      flash[:alert] = "You need to sign in or sign up before continuing."
+      flash[:alert] = "You need to sign in before continuing."
       redirect_to action: "index"
     end
       if @case.update(case_params)
@@ -111,7 +111,7 @@ class CasesController < ApplicationController
   # DELETE /cases/1.json
   def destroy
     if !user_signed_in?
-      flash[:alert] = "You need to sign in or sign up before continuing."
+      flash[:alert] = "You need to sign in before continuing."
       redirect_to action: "index"
     else
       @case.destroy

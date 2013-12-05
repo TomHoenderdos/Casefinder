@@ -10,12 +10,21 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta content="yes" name="apple-mobile-web-app-capable"/>
 </head>
 <body ng-controller="findMyCaseList" style="padding-top: 40px;padding-bottom: 40px;background-color: #eee;">
   <!-- Static navbar -->
   <div class="navbar navbar-fixed-top" role="navigation">
+      <% if notice || alert %>
+        <div class="alert flash-message <%= notice ? "notice" : ""%><%= alert ? "error" : ""%> pull-right">
+              <% if notice %>
+                <p><%= notice %></p>
+              <% elsif alert %>
+                <p><%= alert %></p>
+              <% end %>
+        </div>
+      <% end %>
     <div class="container hdr"></div>
     <div class="container valenta">
     <div class="navbar-header">
@@ -56,19 +65,6 @@
         <% end %>
       <% end %>
 
-      <% if notice || alert %>
-        <div class="flash-message <%= notice ? "notice" : ""%><%= alert ? "error" : ""%>">
-          <div class="container container_12 clearfix">
-            <div class="grid_12">
-              <% if notice %>
-                <p><%= notice %></p>
-              <% elsif alert %>
-                <p><%= alert %></p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
     </div>
     </div><!--/.nav-collapse -->
   </div>
