@@ -103,6 +103,10 @@ div.nav {
   height: 72px;
 }
 
+.nav>li>a:hover, .nav>li>a:focus {
+  background-color: transparent !important;
+}
+
 .navbar-inner {
     height: 60px;
 }
