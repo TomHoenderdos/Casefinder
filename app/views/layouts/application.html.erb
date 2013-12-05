@@ -40,12 +40,12 @@
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li><a href="/">Find My Case</a></li>
-          <li class="active"><a href="/admin/cases">Cases</a></li>
-          <li><a href="/admin/devices">Devices</a></li>
+          <li class="active"><a href="admin/cases">Cases</a></li>
+          <li><a href="admin/devices">Devices</a></li>
         <% else %>
           <li><a href="/TheBrand">The Brand</a></li>
           <li><a href="/Collection">Collection</a></li>
-          <li><a href="/">Find My Case</a></li>
+          <li><a href="/FindMyCase">Find My Case</a></li>
           <li><a href="/Brochure">Brochure</a></li>
         <% end %>
       </ul>
