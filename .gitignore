@@ -3,3 +3,9 @@ log
 backup.sql
 uploads/case/picture/*
 uploads/case/picture/*/*
+uploads
+.ruby-version
+vendor/assets/dist/fonts/DINPro-Medium.eot
+vendor/assets/dist/fonts/DINPro-Medium.svg
+vendor/assets/dist/fonts/DINPro-Medium.ttf
+vendor/assets/dist/fonts/DINPro-Medium.woff
