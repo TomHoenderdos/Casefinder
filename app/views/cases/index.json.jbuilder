@@ -4,7 +4,7 @@ json.array!(@cases) do |case_|
   if !case_.picture.url.nil?
   	json.image_tag case_.picture.url
   else
-  	json.image_tag "json.image_tag "/assets/noimg.png"
+  	json.image_tag "/assets/noimg.png"
   end
 
   json.devices(case_.devices.to_a) do |d|

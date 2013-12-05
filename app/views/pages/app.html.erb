@@ -159,7 +159,7 @@
           <label class="radio-inline" style="text-align: center; padding-left: 0 !important;">
             Handbag<br/>
             <%= image_tag "handbag.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Handbag" class="radio-pos" style="margin-left: 24px !important;" />
+            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="ag" class="radio-pos" style="margin-left: 24px !important;" />
           </label>
           <label class="radio-inline" style="text-align: center; padding-left: 0 !important;">
             Tablet<br/>
@@ -177,8 +177,8 @@
     <div class="container valenta">
       <div class="row">
         <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | colorFilter:case.color | prodTypeFilter:case.prodType" >
-          <div class="casebox">
-            <img ng-src="{{case.image_tag}}">
+          <div class="col-md-12 casebox" style="padding: 0 0 5px 0;">
+            <img class="img-responsive img-rounded" ng-src="{{case.image_tag}}">
             <div class="casebox-inner">
               <p class="name">{{case.name}}</p> <p class="color">{{case.color}}</p>
               <p class="product_type">{{case.product_type}}</p>
