@@ -1,5 +1,5 @@
 json.array!(@cases) do |case_|
-  json.extract! case_, :id, :name, :description, :color, :product_type, :material, :finishing
+  json.extract! case_, :id, :name, :description, :color, :product_type, :material, :finishing, :url
 
   if !case_.picture.url.nil?
   	json.image_tag case_.picture.url
