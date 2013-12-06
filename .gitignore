@@ -1,7 +1,16 @@
 tmp
 log
 backup.sql
+uploads
+uploads/*
+uploads/*/*
+uploads/*/*/*
+uploads/*/*/*/*
+public/uploads
 public/uploads/*
+public/uploads/*/*
+public/uploads/*/*/*
+public/uploads/*/*/*/*
 .ruby-version
 vendor/assets/dist/fonts/DINPro-Medium.eot
 vendor/assets/dist/fonts/DINPro-Medium.svg
