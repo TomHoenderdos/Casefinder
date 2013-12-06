@@ -311,9 +311,18 @@ label.col {
   background-color: #000;
 }
 
-.navbar-toggle {
-  margin-top: 18px !important;
-  margin-bottom: 0 !important;
+.navbar-toggle-glyph {
+/*  margin-right: 0 !important;
+  border-radius:6px;
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+*/}
+
+@media (min-width: 768px) {
+  .navbar-toggle-glyph {
+    display: none;
+  }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -379,4 +388,8 @@ select:focus, textarea:focus, input:focus {
   margin-bottom: 10px;
   padding-left: 0 !important;
   text-align: center; 
+}
+
+.navbar-header > .btn-group {
+  margin: 16px 25px 0 0;
 }

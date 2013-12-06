@@ -29,7 +29,12 @@
     <div class="container valenta">
     <div class="navbar-header">
 
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <div class="btn-group pull-right">
+          <button type="button" class="btn btn-default btn-lg navbar-toggle-glyph" onclick="$('.fmc').toggle(100, 'swing');"><span class="glyphicon glyphicon-filter"></span></button>
+          <button type="button" class="btn btn-default btn-lg navbar-toggle-glyph" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-align-justify"></span></button>
+      </div>
+
+<!--       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -41,7 +46,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
+ -->
       <a class="navbar-brand" href="http://valenta.com"><%= image_tag "logo.png" %></a>
     </div>
     <div class="navbar-collapse collapse">
