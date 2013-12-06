@@ -6,3 +6,5 @@ vendor/assets/dist/fonts/DINPro-Medium.eot
 vendor/assets/dist/fonts/DINPro-Medium.svg
 vendor/assets/dist/fonts/DINPro-Medium.ttf
 vendor/assets/dist/fonts/DINPro-Medium.woff
+public/uploads
+uploads

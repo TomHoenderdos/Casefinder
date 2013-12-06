@@ -39,4 +39,6 @@ App::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = false
+
+  config.serve_static_assets = true
 end
