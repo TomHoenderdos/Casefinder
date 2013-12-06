@@ -20,6 +20,11 @@ body {
   background-color: rgba(238, 238, 238, 0) !important;
 }
 
+p.pull-right {
+  padding-top: 0px;
+  margin-top: -60px;
+}
+
 .fmc {
   padding: 10px;
   font-size: 14px;
@@ -147,7 +152,7 @@ ul.navbar-nav li a {
 }
 
 p.navbar-text {
-  padding-top: 21px;
+  /*padding-top: 21px;*/
 }
 
 p.navbar-text a {
