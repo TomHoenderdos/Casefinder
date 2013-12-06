@@ -44,6 +44,19 @@
             <td width="10"><strong><%= f.label :material, :class => "control-label" %></strong></td>
             <td><%= f.select :material, [['Leather', 'TGVhdGhlcg=='], ['Non Leather', 'Tm9uLUxlYXRoZXI=']], {:prompt => '-- Select One --'}, :class => "form-control", :required => true %></td>
           </tr>
+          <tr>
+            <td width="10"><strong><%= f.label :finishing, :class => "control-label" %></strong></td>
+            <td>
+            <div class="multiselect" style="height: 77px;"> 
+              <% checked_finishings = @case.finishings.to_a.map{ |d| d.id} %>
+                <% Finishing.all.each do |f| %>
+                     <label>
+                      <input type="checkbox" id="case_finishings" name="case[finishings][]" value="<%= f.id %>" <% if checked_finishings.include?(f.id) %><%= "checked" %><% end %>/> <%= f.name %>
+                      </label>
+                <% end %>
+            </div>
+            </td>
+          </tr>
            <tr>
           <td width="10"><strong><%= f.label :url, :class => "control-label" %></strong></td>
           <td>
@@ -53,19 +66,6 @@
             <%= f.text_field :url, :class => "form-control", :required => true %>
           <% end %>
           </td>
-          </tr>
-          <tr>
-            <td width="10"><strong><%= f.label :finishing, :class => "control-label" %></strong></td>
-            <td>
-            <div class="multiselect"> 
-              <% checked_finishings = @case.finishings.to_a.map{ |d| d.id} %>
-                <% Finishing.all.each do |f| %>
-                     <label>
-                      <input type="checkbox" id="case_finishings" name="case[finishings][]" value="<%= f.id %>" <% if checked_finishings.include?(f.id) %><%= "checked" %><% end %>/> <%= f.name %>
-                      </label>
-                <% end %>
-            </div>
-            </td>
           </tr>
           <tr>
             <td width="10"><strong><%= f.label :picture, :class => "control-label" %></strong></td>
