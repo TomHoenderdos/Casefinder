@@ -2,6 +2,7 @@ App::Application.routes.draw do
   
 
 
+  get "sizes/index"
   devise_for :users, 
     :path => 'admin', 
     :path_names => {:sign_in  => 'login', :sign_out => 'logout', :registration => 'register', :sign_up => 'addemployee'}
@@ -21,6 +22,7 @@ App::Application.routes.draw do
     resources :cases
     resources :devices
     resources :finishings
+    resources :sizes
   end
 
   #devise_scope :user do

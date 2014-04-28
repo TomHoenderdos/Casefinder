@@ -123,4 +123,27 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 			return allCases;
 		}
 	};
+})
+.filter('sizeFilter', function(){
+	return function(allCases, sizeFilterInput){
+		if (!angular.isUndefined(allCases) && !angular.isUndefined(sizeFilterInput) && sizeFilterInput.length > 0) {
+			var tempCases = [];
+			angular.forEach(allCases, function(value, key){
+			var gotIt = false;	
+				angular.forEach(value.devices, function(value, key){
+					if (value.id == sizeFilterInput){
+						gotIt=true;
+						console.log(value.id)
+					}
+				});
+				if(gotIt){
+					tempCases.push(value);
+					console.log(value + ', ' + value.id)
+				}
+			});
+			return tempCases;
+		} else {
+			return allCases;
+		}
+	};
 });

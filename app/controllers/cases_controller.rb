@@ -62,8 +62,17 @@ class CasesController < ApplicationController
               p devicecases.errors
             end
           end
+
+          params[:case][:sizes].each do |sizes|
+            sizecases = Sizecase.new(:size_id => sizes, :case_id => @case.id)
+            if sizecases.valid?
+              sizecases.save
+            else
+              p sizecases.errors
+            end    
+          end
           redirect_to action: "index"
-        
+
         else
           render "new"
         end
@@ -131,7 +140,7 @@ class CasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def case_params
-      params.require(:case).permit(:name, :description, :color, :product_type, :material, :finishing, :picture, :devices, :finishings, :url)
+      params.require(:case).permit(:name, :description, :color, :product_type, :material, :finishing, :size, :picture, :devices, :finishings, :sizes, :url)
     end
 
   rescue_from ActiveRecord::RecordNotFound do

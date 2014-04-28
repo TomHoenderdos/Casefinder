@@ -38,7 +38,7 @@
           </label>
        </div>
 
-        <div class="col-md-6">
+        <div class="col-md-3">
           <h5 class="cat" style="float: left">Finishing</h5>
           <h5 class="cat reset" ng-click="clearFinishing()" onClick="$('input:checkbox[name=radioGroup_finishing]').prop('checked',false);">Reset</h5>
           <label class="checkbox-inline">
@@ -57,8 +57,33 @@
           <input ng-model="case.finishing.Gloss" value="Gloss" type="checkbox" name="radioGroup_finishing"> Gloss
           </label>
         </div>
-      </div>
 
+        <div class="col-md-3">
+          <h5 class="cat">Size</h2>
+          <!-- Single button -->
+          <select ng-model="sizes" class="form-control">
+            <option value="" >Please select Your Size</option>
+            <option value="" >- - - - - - - - - - - - - - - -</option>
+            <!-- <option ng-repeat="device in allDevices" value="{{device.id}}">{{device.brand}} {{device.full_name}}</option> -->
+            <% Size.rank(:row_order).to_a.each do |size| %>
+              <% if size.row_order != nil %>
+                <option value="<%= size.id %>">
+                  <%= size.size %>
+                </option>
+              <% end %>
+            <% end %>
+            <option value="" >- - - - - - - - - - - - - - - -</option>
+                            <% Size.all.sort_by{|s| [s['size']]}.each do |size| %>
+                                 <% if size.size != "- - - - - - - - - - - - - - - -" %>
+                                 <option value="<%= size.id %>">
+                                  <%= size.size %>
+                                </option>
+                                <% end %>
+                            <% end %>
+          </select>
+   
+        </div>
+      </div>
 
 
       <div class="row">
@@ -177,7 +202,7 @@
   <div class="results">
     <div class="container valenta">
       <div class="row">
-        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | colorFilter:case.color | prodTypeFilter:case.prodType" >
+        <div class="col-md-3" ng-repeat="case in allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | sizeFilter:sizes | colorFilter:case.color | prodTypeFilter:case.prodType" >
           <div class="col-md-12 casebox" style="padding: 0 0 5px 0;">
             <a href="http://valenta.com/Collection{{case.url}}" target="_top"><img class="img-responsive img-rounded" ng-src="{{case.image_tag}}" width=334></a>
             <div class="casebox-inner">
@@ -187,7 +212,7 @@
           </div>
           <!-- <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p> -->
           </div>
-        <div ng-show="(allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | colorFilter:case.color | prodTypeFilter:case.prodType).length == 0"><h2 style="color:white;">No results!</h2></div>
+        <div ng-show="(allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | sizeFilter:sizes | colorFilter:case.color | prodTypeFilter:case.prodType).length == 0"><h2 style="color:white;">No results!</h2></div>
         </div>
       </div>
     </div>

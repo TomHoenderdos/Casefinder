@@ -89,6 +89,21 @@
               </div>
             </td>
           </tr>
+          <tr>
+            <td width="10"><strong><label class="control-label" for="case_devices">Size</label></strong></td>
+            <td>
+              <div class="multiselect"> 
+                <% checked_sizes = @case.sizes.to_a.map{ |d| d.id} %>
+                <% Size.all.sort_by{|s| [s['size']]}.each do |d| %>
+                <% if d.size != "- - - - - - - - - - - - - - - -" %>
+                  <label>
+                      <input type="checkbox" id="case_sizes" name="case[sizes][]" value="<%= d.id %>" <% if checked_sizes.include?(d.id) %><%= "checked" %><% end %>/> <%= d.size %>
+                  </label>
+                  <% end %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
