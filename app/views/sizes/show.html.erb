@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container valenta">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 style="color: #fff">View Size <%= @size.size %></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table style="background:transparent;" class="table table-condensed table-responsive table-striped">
+				<tbody>
+					<tr>
+						<td width="10" style="white-space:nowrap;"><strong>Size</strong></td>
+						<td width="10">:</td>
+						<td><%= @size.size %></td>
+					</tr>
+					<tr>
+						<td width="10" style="white-space:nowrap;"><strong>Row order</strong></td>
+						<td width="10">:</td>
+						<td><%= @size.row_order %></td>
+					</tr>
+					<tr>
+						<td width="10" style="white-space:nowrap;"><strong>Applies to</strong></td>
+						<td width="10">:</td>					
+						<td><%= @size.cases.to_a.map{ |x| x.name + " " + x.color + ": " + x.product_type }.join(', ') %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<%= link_to 'Edit', edit_size_path(@size), :style => "color: white; width: 100px;" , :class => "btn btn-warning btn-xs"  %>
+			<%= link_to 'Back', sizes_path, :style => "color: white; width: 100px;" , :class => "btn btn-info btn-xs"  %>
+		</div>
+	</div>
+</div>

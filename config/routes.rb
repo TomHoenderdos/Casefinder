@@ -2,6 +2,7 @@ App::Application.routes.draw do
   
 
 
+  get "material/index"
   get "sizes/index"
   devise_for :users, 
     :path => 'admin', 

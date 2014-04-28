@@ -1,14 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @finishing.name %>
-</p>
-
-<p>
-  <strong>Search string:</strong>
-  <%= @finishing.search_string %>
-</p>
-
-<%= link_to 'Edit', edit_finishing_path(@finishing) %> |
-<%= link_to 'Back', finishings_path %>
+<div class="container valenta">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 style="color: #fff">View <%= @finishing.name %></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table style="background:transparent;" class="table table-condensed table-responsive table-striped">
+				<tbody>
+					<tr>
+						<td width="10" style="white-space:nowrap;"><strong>Name</strong></td>
+						<td width="10">:</td>
+						<td><%= @finishing.name %></td>
+					</tr>
+					<tr>
+						<td width="10" style="white-space:nowrap;"><strong>Search String</strong></td>
+						<td width="10">:</td>
+						<td><%= @finishing.search_string %></td>
+					</tr>
+					<tr>
+						<td width="10" style="white-space:nowrap;"><strong>Applies to</strong></td>
+						<td width="10">:</td>					
+						<td><%= @finishing.cases.to_a.map{ |x| x.name + " " + x.color + ": " + x.product_type }.join(', ') %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<%= link_to 'Edit', edit_finishing_path(@finishing), :style => "color: white; width: 100px;" , :class => "btn btn-warning btn-xs"  %>
+			<%= link_to 'Back', finishings_path, :style => "color: white; width: 100px;" , :class => "btn btn-info btn-xs"  %>
+		</div>
+	</div>
+</div>

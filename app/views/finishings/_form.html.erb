@@ -1,25 +1,37 @@
-<%= form_for(@finishing) do |f| %>
-  <% if @finishing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@finishing.errors.count, "error") %> prohibited this finishing from being saved:</h2>
+<%= form_for @finishing, :html => {:class => "form-horizontal"} do |f| %>
+    <% if @finishing.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@finishing.errors.count, "error") %> prohibited this finishing from being saved:</h2>
 
-      <ul>
-      <% @finishing.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+            <ul>
+                <% @finishing.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table style="background:transparent;" class="table table-condensed table-responsive table-striped">
+                <tbody>
+                    <tr>
+                        <td width="10" style="white-space:nowrap;"><strong><label class="control-label" for="finishing_brand">Name</label></strong></td>
+                        <td width="100%"><%= f.text_field :name, :class => "form-control" %></td>
+                    </tr>
+                    <tr>
+                        <td width="10" style="white-space:nowrap;"><strong><label class="control-label" for="full_name">Search String</label></strong></td>
+                        <td width="100%"><%= f.text_field :search_string, :class => "form-control" %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :search_string %><br>
-    <%= f.text_field :search_string %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="row">
+        <div class="col-md-12">
+            <%= f.submit class: "btn btn-success btn-xs", :style => "color: #fff !important; width: 110px;" %>
+            <%= link_to 'Back', finishings_path, :style => "color: white; width: 110px;" , :class => "btn btn-info btn-xs" %>
+        </div>
+    </div>
 <% end %>

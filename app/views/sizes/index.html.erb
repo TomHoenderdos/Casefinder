@@ -1,7 +1,12 @@
 <div class="container valenta">
   <div class="row">
-    <div class="col-md-4">
-      <h1 style="color: #fff">Sizes <%= link_to 'New Size', new_size_path, :style => "color: white;" , :class => "btn btn-success" %></h1>
+    <div class="col-md-12">
+      <h1 style="color: #fff">
+				Sizes <%= link_to 'New Size', new_size_path, :style => "color: white;" , :class => "btn btn-success" %>
+        <%= link_to 'Manage Cases', cases_path, :style => "color: #000 !important;" , :class => "btn btn-default" %> 
+        <%= link_to 'Manage Devices', devices_path, :style => "color: #000 !important;" , :class => "btn btn-default" %>
+        <%= link_to 'Manage Finishings', finishings_path, :style => "color: #000 !important;" , :class => "btn btn-default" %> 
+      </h1>
     </div>
   </div>
   <div class="row">
@@ -9,8 +14,9 @@
       <table style="background:transparent;" class="table table-condensed table-responsive table-hover table-striped">
         <thead>
           <tr>
-            <th style="white-space:nowrap; color: #fff;">Manufacturer</th>
-            <th style="white-space:nowrap; color: #fff;">Model</th>
+            <th style="white-space:nowrap; color: #fff;">Size</th>
+            <th style="white-space:nowrap; color: #fff;">Row order</th>
+            <th style="white-space:nowrap; color: #fff;">Applies to</th>
             <th></th>
             <th></th>
             <th></th>
@@ -23,6 +29,11 @@
               <td style="white-space:nowrap;">
                 <p style="white-space:nowrap; width:130px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin">
                   <%= size.size %>
+                </p>
+              </td>
+              <td style="white-space:nowrap;">
+                <p style="white-space:nowrap; width:130px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin">
+                  <%= size.row_order %>
                 </p>
               </td>
               <td style="white-space:nowrap;">

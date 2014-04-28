@@ -1,29 +1,53 @@
-<h1>Listing finishings</h1>
+<div class="container valenta">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="color: #fff">
+        Finishings <%= link_to 'New Finishing', new_finishing_path, :style => "color: white;" , :class => "btn btn-success" %>
+        <%= link_to 'Manage Cases', cases_path, :style => "color: #000 !important;" , :class => "btn btn-default" %> 
+        <%= link_to 'Manage Devices', devices_path, :style => "color: #000 !important;" , :class => "btn btn-default" %> 
+        <%= link_to 'Manage Sizes', sizes_path, :style => "color: #000 !important;" , :class => "btn btn-default" %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table style="background:transparent;" class="table table-condensed table-responsive table-hover table-striped">
+        <thead>
+          <tr>
+            <th style="white-space:nowrap; color: #fff;">Name</th>
+            <th style="white-space:nowrap; color: #fff;">Search String</th>
+            <th style="white-space:nowrap; color: #fff;">Applies to</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Search string</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @finishings.each do |finishing| %>
-      <tr>
-        <td><%= finishing.name %></td>
-        <td><%= finishing.search_string %></td>
-        <td><%= link_to 'Show', finishing %></td>
-        <td><%= link_to 'Edit', edit_finishing_path(finishing) %></td>
-        <td><%= link_to 'Destroy', finishing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Finishing', new_finishing_path %>
+        <tbody>
+          <% @finishings.each do |finishing| %>
+            <tr>
+              <td style="white-space:nowrap;">
+                <p style="white-space:nowrap; width:130px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin">
+                  <%= finishing.name %>
+                </p>
+              </td>
+              <td style="white-space:nowrap;">
+                <p style="white-space:nowrap; width:130px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin">
+                  <%= finishing.search_string %>
+                </p>
+              </td>
+              <td style="white-space:nowrap;">
+                <p style="white-space:nowrap; width:490px; overflow:hidden; text-overflow: ellipsis;" class="p-no-margin">
+                  <%= finishing.cases.to_a.map{ |x| x.name + " " + x.color + ": " + x.product_type }.join(', ') %></td>
+                </p>
+              </td>
+              <td><%= link_to 'View', finishing, :class => "btn btn-info btn-xs" %></td>
+              <td><%= link_to 'Edit', edit_finishing_path(finishing), :class => "btn btn-warning btn-xs" %></td>
+              <td><%= link_to 'Delete', finishing, method: :delete, :class => "btn btn-danger btn-xs", data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

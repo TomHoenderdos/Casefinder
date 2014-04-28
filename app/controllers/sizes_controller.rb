@@ -5,6 +5,9 @@ class SizesController < ApplicationController
 	  @sizes = Size.rank(:row_order).to_a
   end
 
+  def show
+  end
+
   def new
   	user_signed_in?
   	@size = Size.new

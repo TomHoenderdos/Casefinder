@@ -1,7 +1,12 @@
 <div class="container valenta">
   <div class="row">
-    <div class="col-md-4">
-      <h1 style="color: #fff">Devices <%= link_to 'New Device', new_device_path, :style => "color: white;" , :class => "btn btn-success" %></h1>
+    <div class="col-md-12">
+      <h1 style="color: #fff">
+        Devices <%= link_to 'New Device', new_device_path, :style => "color: white;" , :class => "btn btn-success" %>
+        <%= link_to 'Manage Cases', cases_path, :style => "color: #000 !important;" , :class => "btn btn-default" %> 
+        <%= link_to 'Manage Finishings', finishings_path, :style => "color: #000 !important;" , :class => "btn btn-default" %> 
+        <%= link_to 'Manage Sizes', sizes_path, :style => "color: #000 !important;" , :class => "btn btn-default" %>
+      </h1>
     </div>
   </div>
   <div class="row">
@@ -11,7 +16,7 @@
           <tr>
             <th style="white-space:nowrap; color: #fff;">Manufacturer</th>
             <th style="white-space:nowrap; color: #fff;">Model</th>
-            <th style="white-space:nowrap; color: #fff;">Compatibility</th>
+            <th style="white-space:nowrap; color: #fff;">Applies to</th>
             <th></th>
             <th></th>
             <th></th>
