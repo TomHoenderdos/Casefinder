@@ -128,18 +128,22 @@ findMyCase.controller('findMyCaseList', ['$scope', '$http', function($scope, $ht
 	return function(allCases, sizeFilterInput){
 		if (!angular.isUndefined(allCases) && !angular.isUndefined(sizeFilterInput) && sizeFilterInput.length > 0) {
 			var tempCases = [];
-			angular.forEach(allCases, function(value, key){
-			var gotIt = false;	
-				angular.forEach(value.devices, function(value, key){
-					if (value.id == sizeFilterInput){
-						gotIt=true;
-						console.log(value.id)
+			angular.forEach(allCases, function(allCases_val, allCases_key){
+		
+		// Wanneer je sizes hebt toegevoegd zul je een functie kunnen gebruiken zoals:
+			
+			// angular.forEach(allCases, function(cases){	
+				// if (cases.sizes.indexOf(sizeFilterInput) != -1){
+					// tempCases.push(cases);
+				// }
+			// });
+		// Zie colorFilter als voorbeeld hiervan!
+
+				angular.forEach(allCases_val.devices, function(allCases_val, allCases_key){
+					if (allCases_key == sizeFilterInput){
+						tempCases.push(allCases_val);
 					}
 				});
-				if(gotIt){
-					tempCases.push(value);
-					console.log(value + ', ' + value.id)
-				}
 			});
 			return tempCases;
 		} else {
