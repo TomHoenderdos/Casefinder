@@ -48,9 +48,14 @@
 					<td><%= @case.finishings.to_a.map(&:name).join(', ') %></td>
 				</tr>
 				<tr>
-					<td width="10"><strong>Compatibility</strong></td>
+					<td width="10"><strong>Applies to</strong></td>
 					<td width="10">:</td>
 					<td><%= @case.devices.to_a.map(&:full_name).join(', ') %></td>
+				</tr>
+				<tr>
+					<td width="10"><strong>Sizes</strong></td>
+					<td width="10">:</td>
+					<td><%= @case.sizes.to_a.map(&:size).join(', ') %></td>
 				</tr>
 				
 			</tbody>

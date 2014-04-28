@@ -72,7 +72,7 @@
             <td><%= f.file_field :picture, :class => "form-control" %></td>
           </tr>
           <tr>
-            <td width="10"><strong><label class="control-label" for="case_devices">Compatibility</label></strong></td>
+            <td width="10"><strong><label class="control-label" for="case_devices">Applies to</label></strong></td>
             <td>
               <div class="multiselect"> 
               <% checked_devices = @case.devices.to_a.map{ |d| d.id} %>
@@ -80,6 +80,21 @@
                      <% if d.full_name != "- - - - - - - - - - - - - - - -" %>
                      <label>
                       <input type="checkbox" id="case_devices" name="case[devices][]" value="<%= d.id %>" <% if checked_devices.include?(d.id) %><%= "checked" %><% end %>/> <%= d.brand %> <%= d.full_name %>
+                      </label>
+                    <% end %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="10"><strong><label class="control-label" for="case_devices">Size</label></strong></td>
+            <td>
+              <div class="multiselect"> 
+              <% checked_sizes = @case.sizes.to_a.map{ |d| d.id} %>
+                <% Size.all.sort_by{|s| [s['size']]}.each do |d| %>
+                     <% if d.size != "- - - - - - - - - - - - - - - -" %>
+                     <label>
+                      <input type="checkbox" id="case_sizes" name="case[sizes][]" value="<%= d.id %>" <% if checked_sizes.include?(d.id) %><%= "checked" %><% end %>/> <%= d.size %>
                       </label>
                     <% end %>
                 <% end %>
