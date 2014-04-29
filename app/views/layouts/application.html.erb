@@ -10,6 +10,20 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>  
+  <!-- Log Turbolinks activity -->
+  <!-- <script type="text/javascript">
+    document.addEventListener("page:change", function() {
+      console.log("page changed");
+    });
+
+    document.addEventListener("page:update", function() {
+      console.log("page updated");
+    });
+
+    document.addEventListener("page:restore", function() {
+      console.log("page restored");
+    });
+  </script> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta content="yes" name="apple-mobile-web-app-capable"/>
 </head>
@@ -52,13 +66,13 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-          <li><a href="http://findmycase.valenta.com">Find My Case</a></li>
+          <li><%= link_to "Find My Case", root_path, :data => { :no_turbolink => true } %></li>
           <li class="active"><a href="/admin/cases">Cases</a></li>
           <li><a href="/admin/devices">Devices</a></li>
         <% else %>
           <li><a href="http://valenta.com/TheBrand">The Brand</a></li>
           <li><a href="http://valenta.com/Collection">Collection</a></li>
-          <li><a href="#">Find My Case</a></li>
+          <li><%= link_to "Find My Case", root_path, :data => { :no_turbolink => true } %></li>
           <li><a href="http://valenta.com/Brochure">Brochure</a></li>
         <% end %>
       </ul>
