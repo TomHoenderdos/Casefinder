@@ -92,6 +92,7 @@ class CasesController < ApplicationController
       if @case.update(case_params)
         Devicecase.where(:case_id => @case.id).delete_all
         Finishingcase.where(:case_id => @case.id).delete_all
+        Sizecase.where(:case_id => @case.id).delete_all
         params[:case][:finishings].each do |finishing|
           finishingcase = Finishingcase.new(:finishing_id => finishing, :case_id => @case.id)
           if finishingcase.valid?
@@ -108,6 +109,15 @@ class CasesController < ApplicationController
           else 
             p devicecases.errors
           end
+        end
+
+        params[:case][:sizes].each do |sizes|
+          sizecases = Sizecase.new(:size_id => sizes, :case_id => @case.id)
+          if sizecases.valid?
+            sizecases.save
+          else
+            p sizecases.errors
+          end    
         end
         flash[:notice] = 'Case was successfully updated.'
         redirect_to action: "index"
