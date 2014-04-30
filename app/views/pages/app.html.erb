@@ -1,191 +1,183 @@
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="fmc">
       <div class="container valenta">
-      <div class="row">
-        <div class="col-md-3">
-          <h5 class="cat">Device</h2>
-          <!-- Single button -->
-<select ng-model="devices" class="form-control">
-<option value="" >Please select Your Cellphone</option>
-<option value="" >- - - - - - - - - - - - - - - -</option>
-<!-- <option ng-repeat="device in allDevices" value="{{device.id}}">{{device.brand}} {{device.full_name}}</option> -->
-<% Device.rank(:row_order).to_a.each do |d| %>
-  <% if d.row_order != nil %>
-    <option value="<%= d.id %>">
-      <%= d.brand %> <%= d.full_name %>
-    </option>
-  <% end %>
-<% end %>
-<option value="" >- - - - - - - - - - - - - - - -</option>
-                <% Device.all.sort_by{|s| [s['brand'],s['full_name']]}.each do |d| %>
-                     <% if d.full_name != "- - - - - - - - - - - - - - - -" %>
-                     <option value="<%= d.id %>">
-                      <%= d.brand %> <%= d.full_name %>
-                    </option>
-                    <% end %>
+        <div class="row">
+          <div class="col-md-3">
+            <h5 class="cat">Device</h2>
+            <select ng-model="devices" class="form-control">
+              <option value="" >Please select Your Cellphone</option>
+              <option value="" >- - - - - - - - - - - - - - - -</option>
+              <% Device.rank(:row_order).to_a.each do |d| %>
+                <% if d.row_order != nil %>
+                  <option value="<%= d.id %>">
+                    <%= d.brand %> <%= d.full_name %>
+                  </option>
                 <% end %>
-</select>
-   
-        </div>
-        <div class="col-md-3 filter">
-          <h5 class="cat" style="float: left">Material</h5>
-          <h5 class="cat reset" ng-click="clearMaterial()" onClick="$('input[name=radioGroup_material]').attr('checked',false);">Reset</h5>
-          <label class="radio-inline">
-            <input ng-model="case.material" type="radio" name="radioGroup_material"  value="TGVhdGhlcg=="> Leather
-          </label><br/>
-          <label class="radio-inline">
-            <input ng-model="case.material" type="radio" name="radioGroup_material"  value="Tm9uLUxlYXRoZXI="> Non-Leather
-          </label>
-       </div>
+              <% end %>
+              <option value="" >- - - - - - - - - - - - - - - -</option>
+              <% Device.all.sort_by{|s| [s['brand'],s['full_name']]}.each do |d| %>
+                <% if d.full_name != "- - - - - - - - - - - - - - - -" %>
+                  <option value="<%= d.id %>">
+                    <%= d.brand %> <%= d.full_name %>
+                  </option>
+                <% end %>
+              <% end %>
+            </select>
+          </div>
+          <div class="col-md-3 filter">
+            <h5 class="cat" style="float: left">Material</h5>
+            <h5 class="cat reset" ng-click="clearMaterial()" onClick="$('input[name=radioGroup_material]').attr('checked',false);">Reset</h5>
+            <label class="radio-inline">
+              <input ng-model="case.material" type="radio" name="radioGroup_material"  value="TGVhdGhlcg=="> Leather
+            </label><br/>
+            <label class="radio-inline">
+              <input ng-model="case.material" type="radio" name="radioGroup_material"  value="Tm9uLUxlYXRoZXI="> Non-Leather
+            </label>
+          </div>
 
-        <div class="col-md-3">
-          <h5 class="cat" style="float: left">Finishing</h5>
-          <h5 class="cat reset" ng-click="clearFinishing()" onClick="$('input:checkbox[name=radioGroup_finishing]').prop('checked',false);">Reset</h5>
-          <label class="checkbox-inline">
-            <input ng-model="case.finishing.Croco" value="Croco" type="checkbox" name="radioGroup_finishing"> Croco Structure
-          </label>
-          <label class="checkbox-inline">
-            <input ng-model="case.finishing.Print" value="Print" type="checkbox" name="radioGroup_finishing"> Print
-          </label><br/>
-          <label class="checkbox-inline">
-            <input ng-model="case.finishing.Snake" value="Snake" type="checkbox" name="radioGroup_finishing"> Snake Structure
-          </label>
-          <label class="checkbox-inline">
-           <input ng-model="case.finishing.Other" value="Other" type="checkbox" name="radioGroup_finishing"> Other
-          </label><br/>
-          <label class="checkbox-inline">
-          <input ng-model="case.finishing.Gloss" value="Gloss" type="checkbox" name="radioGroup_finishing"> Gloss
-          </label>
-        </div>
+          <div class="col-md-3">
+            <h5 class="cat" style="float: left">Finishing</h5>
+            <h5 class="cat reset" ng-click="clearFinishing()" onClick="$('input:checkbox[name=radioGroup_finishing]').prop('checked',false);">Reset</h5>
+            <label class="checkbox-inline">
+              <input ng-model="case.finishing.Croco" value="Croco" type="checkbox" name="radioGroup_finishing"> Croco Structure
+            </label>
+            <label class="checkbox-inline">
+              <input ng-model="case.finishing.Print" value="Print" type="checkbox" name="radioGroup_finishing"> Print
+            </label><br/>
+            <label class="checkbox-inline">
+              <input ng-model="case.finishing.Snake" value="Snake" type="checkbox" name="radioGroup_finishing"> Snake Structure
+            </label>
+            <label class="checkbox-inline">
+             <input ng-model="case.finishing.Other" value="Other" type="checkbox" name="radioGroup_finishing"> Other
+            </label><br/>
+            <label class="checkbox-inline">
+            <input ng-model="case.finishing.Gloss" value="Gloss" type="checkbox" name="radioGroup_finishing"> Gloss
+            </label>
+          </div>
 
-        <div class="col-md-3">
-          <h5 class="cat">Size</h2>
-          <!-- Single button -->
-          <select ng-model="case.sizes" class="form-control">
-            <option value="" >Please select Your Size</option>
-            
-            <!-- <option ng-repeat="device in allDevices" value="{{device.id}}">{{device.brand}} {{device.full_name}}</option> -->
+          <div class="col-md-3">
+            <h5 class="cat">Size</h2>
+            <select ng-model="case.sizes" class="form-control">
+              <option value="" >Please select Your Size</option>
+              
               <% Size.all.sort_by{|s| [s['size']]}.each do |size| %>
-                   <% if size.size != "- - - - - - - - - - - - - - - -" %>
-                   <option value="<%= size.size %>">
+                <% if size.size != "- - - - - - - - - - - - - - - -" %>
+                  <option value="<%= size.size %>">
                     <%= size.size %>
                   </option>
-                  <% end %>
+                <% end %>
               <% end %>
-          </select>
-   
+            </select>
+          </div>
         </div>
-      </div>
 
+        <div class="row">
+          <div class="col-md-3">
+            <h5 class="cat" style="float: left">Colors</h5>
+            <h5 class="cat reset" ng-click="clearColors()" onClick="$('input[name=colorGroup]').attr('checked',false);">Reset</h5>
+            <p class="colors">
 
-      <div class="row">
-        <div class="col-md-3">
-          <h5 class="cat" style="float: left">Colors</h5>
-          <h5 class="cat reset" ng-click="clearColors()" onClick="$('input[name=colorGroup]').attr('checked',false);">Reset</h5>
-          <p class="colors">
+            <input ng-model="case.color" type="radio" name="colorGroup" id="beige" value="Beige" class="radio-pos col"/>
+            <label class="radio-inline col" for="beige" title="Beige"></label>
 
-          <input ng-model="case.color" type="radio" name="colorGroup" id="beige" value="Beige" class="radio-pos col"/>
-          <label class="radio-inline col" for="beige" title="Beige"></label>
+            <input ng-model="case.color" type="radio" name="colorGroup" id="black" value="Black" class="radio-pos col" />
+            <label class="radio-inline col" for="black" title="Black"></label>
+            
+              <input ng-model="case.color" type="radio" name="colorGroup" id="blue" value="Blue" class="radio-pos col" />
+            <label class="radio-inline col" for="blue" title="Blue"></label>
+            
+              <input ng-model="case.color" type="radio" name="colorGroup" id="brown" value="Brown" class="radio-pos col" />
+            <label class="radio-inline col" for="brown" title="Brown"></label>
+            
+              <input ng-model="case.color" type="radio" name="colorGroup" id="cognac" value="Vintage Cognac" class="radio-pos col" />
+            <label class="radio-inline col" for="cognac" title="Cognac"></label>
+            
+              <input ng-model="case.color" type="radio" name="colorGroup" id="green" value="Green" class="radio-pos col" />
+            <label class="radio-inline col" for="green" title="Green"></label>
+            
+              <input ng-model="case.color" type="radio" name="colorGroup" id="grey" value="Grey" class="radio-pos col" />
+            <label class="radio-inline col" for="grey" title="Grey"></label>
 
-          <input ng-model="case.color" type="radio" name="colorGroup" id="black" value="Black" class="radio-pos col" />
-          <label class="radio-inline col" for="black" title="Black"></label>
-          
-            <input ng-model="case.color" type="radio" name="colorGroup" id="blue" value="Blue" class="radio-pos col" />
-          <label class="radio-inline col" for="blue" title="Blue"></label>
-          
-            <input ng-model="case.color" type="radio" name="colorGroup" id="brown" value="Brown" class="radio-pos col" />
-          <label class="radio-inline col" for="brown" title="Brown"></label>
-          
-            <input ng-model="case.color" type="radio" name="colorGroup" id="cognac" value="Vintage Cognac" class="radio-pos col" />
-          <label class="radio-inline col" for="cognac" title="Cognac"></label>
-          
-            <input ng-model="case.color" type="radio" name="colorGroup" id="green" value="Green" class="radio-pos col" />
-          <label class="radio-inline col" for="green" title="Green"></label>
-          
-            <input ng-model="case.color" type="radio" name="colorGroup" id="grey" value="Grey" class="radio-pos col" />
-          <label class="radio-inline col" for="grey" title="Grey"></label>
+              <input ng-model="case.color" type="radio" name="colorGroup" id="orange" value="Orange" class="radio-pos col" />
+            <label class="radio-inline col" for="orange" title="Orange"></label>
 
-            <input ng-model="case.color" type="radio" name="colorGroup" id="orange" value="Orange" class="radio-pos col" />
-          <label class="radio-inline col" for="orange" title="Orange"></label>
+              <input ng-model="case.color" type="radio" name="colorGroup" id="pink" value="Pink" class="radio-pos col" />
+            <label class="radio-inline col" for="pink" title="Pink"></label>
 
-            <input ng-model="case.color" type="radio" name="colorGroup" id="pink" value="Pink" class="radio-pos col" />
-          <label class="radio-inline col" for="pink" title="Pink"></label>
+              <input ng-model="case.color" type="radio" name="colorGroup" id="purple" value="Purple" class="radio-pos col" />
+            <label class="radio-inline col" for="purple" title="Purple"></label>
 
-            <input ng-model="case.color" type="radio" name="colorGroup" id="purple" value="Purple" class="radio-pos col" />
-          <label class="radio-inline col" for="purple" title="Purple"></label>
+            <input ng-model="case.color" type="radio" name="colorGroup" id="red" value="Red" class="radio-pos col" />
+            <label class="radio-inline col" for="red" title="Red"></label>
+            
+              <input ng-model="case.color" type="radio" name="colorGroup" id="silver" value="Slv" class="radio-pos col" />
+            <label class="radio-inline col" for="silver" title="Silver"></label>
 
-          <input ng-model="case.color" type="radio" name="colorGroup" id="red" value="Red" class="radio-pos col" />
-          <label class="radio-inline col" for="red" title="Red"></label>
-          
-            <input ng-model="case.color" type="radio" name="colorGroup" id="silver" value="Slv" class="radio-pos col" />
-          <label class="radio-inline col" for="silver" title="Silver"></label>
+              <input ng-model="case.color" type="radio" name="colorGroup" id="turquoise" value="Turquoise" class="radio-pos col" />
+            <label class="radio-inline col" for="turquoise" title="Turquoise"></label>
 
-            <input ng-model="case.color" type="radio" name="colorGroup" id="turquoise" value="Turquoise" class="radio-pos col" />
-          <label class="radio-inline col" for="turquoise" title="Turquoise"></label>
+              <input ng-model="case.color" type="radio" name="colorGroup" id="violet" value="Violet" class="radio-pos col" />
+            <label class="radio-inline col" for="violet" title="Violet"></label>
 
-            <input ng-model="case.color" type="radio" name="colorGroup" id="violet" value="Violet" class="radio-pos col" />
-          <label class="radio-inline col" for="violet" title="Violet"></label>
+              <input ng-model="case.color" type="radio" name="colorGroup" id="white" value="White" class="radio-pos col" />
+            <label class="radio-inline col" for="white" title="White"></label>
 
-            <input ng-model="case.color" type="radio" name="colorGroup" id="white" value="White" class="radio-pos col" />
-          <label class="radio-inline col" for="white" title="White"></label>
+              <input ng-model="case.color" type="radio" name="colorGroup" id="yellow" value="Yellow" class="radio-pos col" />
+            <label class="radio-inline col" for="yellow" title="Yellow"></label>
 
-            <input ng-model="case.color" type="radio" name="colorGroup" id="yellow" value="Yellow" class="radio-pos col" />
-          <label class="radio-inline col" for="yellow" title="Yellow"></label>
-
-          </p>
+            </p>
+          </div>
+          <div class="col-md-9">
+            <h5 class="cat" style="float: left">Product Type</h5>
+            <h5 class="cat reset" ng-click="clearProductTypes()" onClick="$('input[name=prodType]').attr('checked',false);">Reset</h5>
+            <p class="prodType">
+            <label class="radio-inline">
+              Pocket<br/>
+              <%= image_tag "pocket.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Pocket" class="radio-pos" style="margin-left: 24px !important;"/>
+            </label>
+            <label class="radio-inline">
+              Belt<br/>
+              <%= image_tag "belt.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Belt" class="radio-pos" style="margin-left: 24px !important;" />
+            </label>
+            <label class="radio-inline">
+              Click-On<br/>
+              <%= image_tag "clickon.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Click-On" class="radio-pos" style="margin-left: 24px !important;" />
+            </label>
+            <label class="radio-inline">
+              Flip<br/>
+              <%= image_tag "flip.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Flip" class="radio-pos" style="margin-left: 24px !important;" />
+            </label>
+            <label class="radio-inline">
+              Booklet<br/>
+              <%= image_tag "booklet.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Booklet" class="radio-pos" style="margin-left: 24px !important;" />
+            </label>
+            <label class="radio-inline">
+              Pouch<br/>
+              <%= image_tag "pouch.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Pouch" class="radio-pos" style="margin-left: 24px !important;" />
+            </label>
+            <label class="radio-inline">
+              Wallet<br/>
+              <%= image_tag "wallet.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Wallet" class="radio-pos" style="margin-left: 24px !important;" />
+            </label>
+            <label class="radio-inline">
+              Handbag<br/>
+              <%= image_tag "handbag.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="ag" class="radio-pos" style="margin-left: 24px !important;" />
+            </label>
+            <label class="radio-inline">
+              Tablet<br/>
+              <%= image_tag "tablet.png" %><br/>
+              <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Tablet" class="radio-pos" style="margin-left: 24px !important;" />
+            </label>
+            </p>
+          </div>
         </div>
-        <div class="col-md-9">
-          <h5 class="cat" style="float: left">Product Type</h5>
-          <h5 class="cat reset" ng-click="clearProductTypes()" onClick="$('input[name=prodType]').attr('checked',false);">Reset</h5>
-          <p class="prodType">
-          <label class="radio-inline">
-            Pocket<br/>
-            <%= image_tag "pocket.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Pocket" class="radio-pos" style="margin-left: 24px !important;"/>
-          </label>
-          <label class="radio-inline">
-            Belt<br/>
-            <%= image_tag "belt.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Belt" class="radio-pos" style="margin-left: 24px !important;" />
-          </label>
-          <label class="radio-inline">
-            Click-On<br/>
-            <%= image_tag "clickon.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Click-On" class="radio-pos" style="margin-left: 24px !important;" />
-          </label>
-          <label class="radio-inline">
-            Flip<br/>
-            <%= image_tag "flip.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Flip" class="radio-pos" style="margin-left: 24px !important;" />
-          </label>
-          <label class="radio-inline">
-            Booklet<br/>
-            <%= image_tag "booklet.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Booklet" class="radio-pos" style="margin-left: 24px !important;" />
-          </label>
-          <label class="radio-inline">
-            Pouch<br/>
-            <%= image_tag "pouch.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Pouch" class="radio-pos" style="margin-left: 24px !important;" />
-          </label>
-          <label class="radio-inline">
-            Wallet<br/>
-            <%= image_tag "wallet.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Wallet" class="radio-pos" style="margin-left: 24px !important;" />
-          </label>
-          <label class="radio-inline">
-            Handbag<br/>
-            <%= image_tag "handbag.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="ag" class="radio-pos" style="margin-left: 24px !important;" />
-          </label>
-          <label class="radio-inline">
-            Tablet<br/>
-            <%= image_tag "tablet.png" %><br/>
-            <input ng-model="case.prodType" type="radio" name="prodType" id="radio2" value="Tablet" class="radio-pos" style="margin-left: 24px !important;" />
-          </label>
-          </p>
-       </div>
-      </div>
       </div>
     </div>
   
@@ -202,11 +194,9 @@
               <p class="product_type">{{case.product_type}}</p>
             </div>
           </div>
-          <!-- <p><a class="btn btn-default" href="{{case.url}}" role="button">View details &raquo;</a></p> -->
-          </div>
+        </div>
         <div ng-show="(allCases | deviceFilter:devices | leatherFilter:case.material | finishingFilter:case.finishing | sizeFilter:case.sizes | colorFilter:case.color | prodTypeFilter:case.prodType).length == 0"><h2 style="color:white;">No results!</h2></div>
         </div>
       </div>
     </div>
   </div>
-    <!-- </div> -->
