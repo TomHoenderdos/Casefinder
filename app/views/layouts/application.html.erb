@@ -10,25 +10,10 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>  
-  <!-- Log Turbolinks activity -->
-  <!-- <script type="text/javascript">
-    document.addEventListener("page:change", function() {
-      console.log("page changed");
-    });
-
-    document.addEventListener("page:update", function() {
-      console.log("page updated");
-    });
-
-    document.addEventListener("page:restore", function() {
-      console.log("page restored");
-    });
-  </script> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta content="yes" name="apple-mobile-web-app-capable"/>
 </head>
 <body ng-controller="findMyCaseList" style="padding-top: 40px;padding-bottom: 40px;background-color: #eee;">
-  <!-- Static navbar -->
   <div class="navbar navbar-fixed-top" role="navigation">
       <% if notice || alert %>
         <div class="alert flash-message <%= notice ? "notice" : ""%><%= alert ? "error" : ""%> pull-right">
@@ -48,19 +33,6 @@
           <button type="button" class="btn btn-default btn-lg navbar-toggle-glyph" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-align-justify"></span></button>
       </div>
 
-<!--       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <button type="button" class="navbar-toggle" onclick="$('.fmc').toggle(100, 'swing');">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
- -->
       <a class="navbar-brand" href="http://valenta.com"><%= image_tag "logo.png" %></a>
     </div>
     <div class="navbar-collapse collapse">
@@ -93,13 +65,9 @@
       <% end %>
 
     </div>
-    </div><!--/.nav-collapse -->
+    </div>
   </div>
   
-<!-- <div class="container"> -->
 	<%= yield %>
-<!-- </div> -->
-
-<!-- </div> -->
 </body>
 </html>
